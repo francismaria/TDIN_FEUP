@@ -1,0 +1,6 @@
+C:\Users\Francisco Maria\source\repos\project\Common\bin\Debug\Common.dll
+C:\Users\Francisco Maria\source\repos\project\Common\bin\Debug\Common.pdb
+C:\Users\Francisco Maria\source\repos\project\Common\obj\Debug\Common.csprojAssemblyReference.cache
+C:\Users\Francisco Maria\source\repos\project\Common\obj\Debug\Common.csproj.CoreCompileInputs.cache
+C:\Users\Francisco Maria\source\repos\project\Common\obj\Debug\Common.dll
+C:\Users\Francisco Maria\source\repos\project\Common\obj\Debug\Common.pdb

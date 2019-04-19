@@ -1,0 +1,9 @@
+C:\Users\Francisco Maria\source\repos\project\OrderInfo\bin\Debug\OrderInfo.dll
+C:\Users\Francisco Maria\source\repos\project\OrderInfo\bin\Debug\OrderInfo.pdb
+C:\Users\Francisco Maria\source\repos\project\OrderInfo\bin\Debug\Common.dll
+C:\Users\Francisco Maria\source\repos\project\OrderInfo\bin\Debug\Common.pdb
+C:\Users\Francisco Maria\source\repos\project\OrderInfo\obj\Debug\OrderInfo.csprojAssemblyReference.cache
+C:\Users\Francisco Maria\source\repos\project\OrderInfo\obj\Debug\OrderInfo.csproj.CoreCompileInputs.cache
+C:\Users\Francisco Maria\source\repos\project\OrderInfo\obj\Debug\OrderInfo.csproj.CopyComplete
+C:\Users\Francisco Maria\source\repos\project\OrderInfo\obj\Debug\OrderInfo.dll
+C:\Users\Francisco Maria\source\repos\project\OrderInfo\obj\Debug\OrderInfo.pdb
