@@ -20,10 +20,14 @@ namespace PaymentTerminal
             RemotingConfiguration.Configure("PaymentTerminal.exe.config", false);
             ordersServer = (IOrder_Info)RemoteNew.New(typeof(IOrder_Info));
 
-            Order o1 = new Order();
-            ordersServer.AddNewOrder(o1);
-            Order o2 = ordersServer.GetOrder(0);
-            Console.WriteLine("ashaha" + o2.getPrice());
+            const int destinationTable = 10;        //DEBUG ONLY
+
+            ordersServer.OpenTable(10);
+
+            Order o1 = new Order("Bacalhau à Brás", destinationTable, 16.99, Order.ORDER_TYPE.KITCHEN);
+            ordersServer.AddNewOrder(destinationTable, o1);
+           
+            Console.WriteLine("ashaha" + ordersServer.GetOrder(destinationTable, 1).getPrice());
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);

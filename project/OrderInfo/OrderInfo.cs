@@ -1,42 +1,93 @@
 ﻿using System;
 using System.Collections;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Collections.Generic;
 
 public class OrderInfo : MarshalByRefObject, IOrder_Info
 {
-    ArrayList ordersList;
+    // Destination table : All the orders that were requested to that table
+    Dictionary<int, List<Order>> ordersHistory = new Dictionary<int, List<Order>>();
+    Dictionary<int, List<Order>> activeTables = new Dictionary<int, List<Order>>();
 
     public OrderInfo()
     {
-        ordersList = new ArrayList();
-        Console.WriteLine("Database has been created.");
+        Console.WriteLine("Central Storage has been created.");
     }
 
-    public void AddNewOrder(Order newOrder)
+    // --- Private Methods ---
+    
+    private bool CheckIfTableIsActive(int tableID)
     {
-        ordersList.Add(newOrder);
-        Console.WriteLine("ADDED has been created.");
+        return activeTables.ContainsKey(tableID);
     }
 
-    public double GetPrice()
+    private void WriteTableError(int tableID)
     {
-        return 14.0;
+
+        Console.WriteLine("The table with the ID " + tableID + " is not active.");
+        Console.WriteLine("Operation not succeeded.");
     }
 
-    public Order GetOrder(int orderID)
+    public void OpenTable(int tableID)
     {
-        foreach(Order order in ordersList)
+        if(activeTables.ContainsKey(tableID))
+        {   
+            Console.WriteLine("Table is already opened.");      //Send an error message to appear
+            return;
+        }
+        List<Order> tableOrderList = new List<Order>();
+        activeTables.Add(tableID, tableOrderList);
+    }
+
+    public void CloseTable(int tableID)
+    {
+        if(!activeTables.ContainsKey(tableID))
         {
-            if(order.getID() == orderID)
-            {
-                return order;
-            }
+            WriteTableError(tableID);
+            return;
+        }
+
+        ordersHistory.Add(tableID, activeTables[tableID]);
+        activeTables.Remove(tableID);
+    }
+
+    public void AddNewOrder(int tableID, Order newOrder)
+    {
+        if(!CheckIfTableIsActive(tableID))
+        {
+            WriteTableError(tableID);
+            return;
+        }
+
+        activeTables[tableID].Add(newOrder);
+    }
+
+    public Order GetOrder(int tableID, int orderID)
+    {
+        if (!CheckIfTableIsActive(tableID))
+        {
+            WriteTableError(tableID);
+            return null;
+        }
+
+        foreach(Order tableOrder in activeTables[tableID])
+        {
+            if (tableOrder.getID() == orderID)
+                return tableOrder;
         }
         return null;
     }
 
+    public List<Order> GetAllTableOrders(int tableID)
+    {
+        if (!activeTables.ContainsKey(tableID))
+        {
+            Console.WriteLine("The table with the ID " + tableID + " is not active.");
+            Console.WriteLine("Operation not succeeded.");
+            return null;
+        }
+
+        return activeTables[tableID];
+    }
 
     public override object InitializeLifetimeService()
     {
