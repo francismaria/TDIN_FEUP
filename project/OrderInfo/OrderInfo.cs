@@ -4,37 +4,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-public class Order
-{
-    private int ID;
-    private string description;
-    private int destinationTable;
-    private double price;
-    private int state;
-
-    public Order()
-    {
-        ID = 0;
-        description = null;
-        destinationTable = 0;
-        price = 0.0;
-        state = 0;
-    }
-}
-
 public class OrderInfo : MarshalByRefObject, IOrder_Info
 {
     ArrayList ordersList;
 
     public OrderInfo()
     {
+        ordersList = new ArrayList();
         Console.WriteLine("Database has been created.");
     }
 
-    public void AddNewOrder()
+    public void AddNewOrder(Order newOrder)
     {
-        Order order = new Order();
-        ordersList.Add(order);
+        ordersList.Add(newOrder);
         Console.WriteLine("ADDED has been created.");
     }
 
@@ -42,6 +24,19 @@ public class OrderInfo : MarshalByRefObject, IOrder_Info
     {
         return 14.0;
     }
+
+    public Order GetOrder(int orderID)
+    {
+        foreach(Order order in ordersList)
+        {
+            if(order.getID() == orderID)
+            {
+                return order;
+            }
+        }
+        return null;
+    }
+
 
     public override object InitializeLifetimeService()
     {

@@ -20,8 +20,10 @@ namespace PaymentTerminal
             RemotingConfiguration.Configure("PaymentTerminal.exe.config", false);
             ordersServer = (IOrder_Info)RemoteNew.New(typeof(IOrder_Info));
 
-            //ordersServer.AddNewOrder();
-            Console.WriteLine("ashaha" + ordersServer.GetPrice());
+            Order o1 = new Order();
+            ordersServer.AddNewOrder(o1);
+            Order o2 = ordersServer.GetOrder(0);
+            Console.WriteLine("ashaha" + o2.getPrice());
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
