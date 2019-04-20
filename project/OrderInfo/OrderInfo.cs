@@ -1,12 +1,17 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 
 public class OrderInfo : MarshalByRefObject, IOrder_Info
 {
-    // Destination table : All the orders that were requested to that table
+    // Destination table ID : All the orders that were requested to that table
     Dictionary<int, List<Order>> ordersHistory = new Dictionary<int, List<Order>>();
     Dictionary<int, List<Order>> activeTables = new Dictionary<int, List<Order>>();
+
+    // -- Events -- 
+
+    public event UpdateActiveTablesDelegate updateActiveTablesEvent;
 
     public OrderInfo()
     {
@@ -36,6 +41,7 @@ public class OrderInfo : MarshalByRefObject, IOrder_Info
         }
         List<Order> tableOrderList = new List<Order>();
         activeTables.Add(tableID, tableOrderList);
+        UpdateActiveTables();
     }
 
     public void CloseTable(int tableID)
@@ -48,6 +54,7 @@ public class OrderInfo : MarshalByRefObject, IOrder_Info
 
         ordersHistory.Add(tableID, activeTables[tableID]);
         activeTables.Remove(tableID);
+        UpdateActiveTables();
     }
 
     public void AddNewOrder(int tableID, Order newOrder)
@@ -71,7 +78,7 @@ public class OrderInfo : MarshalByRefObject, IOrder_Info
 
         foreach(Order tableOrder in activeTables[tableID])
         {
-            if (tableOrder.getID() == orderID)
+            if (tableOrder.getID() == orderID)  
                 return tableOrder;
         }
         return null;
@@ -81,8 +88,7 @@ public class OrderInfo : MarshalByRefObject, IOrder_Info
     {
         if (!IsTableActive(tableID))
         {
-            Console.WriteLine("The table with the ID " + tableID + " is not active.");
-            Console.WriteLine("Operation not succeeded.");
+            WriteTableError(tableID);
             return null;
         }
 
@@ -92,5 +98,30 @@ public class OrderInfo : MarshalByRefObject, IOrder_Info
     public override object InitializeLifetimeService()
     {
         return null;
+    }
+
+    void UpdateActiveTables()
+    {
+        if (updateActiveTablesEvent != null)
+        {
+            Delegate[] invkList = updateActiveTablesEvent.GetInvocationList();
+            List<int> activeTablesIDs = new List<int>(activeTables.Keys);
+
+            foreach (UpdateActiveTablesDelegate handler in invkList)
+            {
+                new Thread(() => {
+                    try
+                    {
+                        handler(activeTablesIDs);
+                        Console.WriteLine("Invoking event handler");
+                    }
+                    catch (Exception)
+                    {
+                        updateActiveTablesEvent -= handler;
+                        Console.WriteLine("Exception: Removed an event handler");
+                    }
+                }).Start();
+            }
+        }
     }
 }

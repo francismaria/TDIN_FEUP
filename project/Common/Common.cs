@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
+// -- Order Object --
+
 [Serializable]
 public class Order
 {
@@ -80,8 +82,28 @@ public class Order
     }
 }
 
+public class UpdateActiveTablesRepeater : MarshalByRefObject
+{
+    public event UpdateActiveTablesDelegate updateActiveTablesEvent;
+
+    public override object InitializeLifetimeService()
+    {
+        return null;
+    }
+
+    public void Repeater(List<int> activeTablesIDs)
+    {
+        if (updateActiveTablesEvent != null)
+            updateActiveTablesEvent(activeTablesIDs);
+    }
+}
+
+// -- Common Interface --
+
 public interface IOrder_Info
 {
+    event UpdateActiveTablesDelegate updateActiveTablesEvent;
+
     void OpenTable(int tableID);
 
     void CloseTable(int tableID);
@@ -94,3 +116,7 @@ public interface IOrder_Info
 
 
 }
+
+// -- Events -- 
+
+public delegate void UpdateActiveTablesDelegate(List<int> activeTablesIDs);
