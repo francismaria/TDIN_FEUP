@@ -84,6 +84,8 @@ public interface IOrder_Info
 {
     void OpenTable(int tableID);
 
+    void CloseTable(int tableID);
+
     void AddNewOrder(int tableID, Order newOrder);
 
     List<Order> GetAllTableOrders(int tableID);

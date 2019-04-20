@@ -20,7 +20,7 @@ namespace PaymentTerminal
             RemotingConfiguration.Configure("PaymentTerminal.exe.config", false);
             ordersServer = (IOrder_Info)RemoteNew.New(typeof(IOrder_Info));
 
-            const int destinationTable = 10;        //DEBUG ONLY
+            const int destinationTable = 10;        // --- > DEBUG ONLY
 
             ordersServer.OpenTable(10);
 

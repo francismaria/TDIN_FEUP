@@ -15,7 +15,7 @@ public class OrderInfo : MarshalByRefObject, IOrder_Info
 
     // --- Private Methods ---
     
-    private bool CheckIfTableIsActive(int tableID)
+    private bool IsTableActive(int tableID)
     {
         return activeTables.ContainsKey(tableID);
     }
@@ -29,7 +29,7 @@ public class OrderInfo : MarshalByRefObject, IOrder_Info
 
     public void OpenTable(int tableID)
     {
-        if(activeTables.ContainsKey(tableID))
+        if(IsTableActive(tableID))
         {   
             Console.WriteLine("Table is already opened.");      //Send an error message to appear
             return;
@@ -40,7 +40,7 @@ public class OrderInfo : MarshalByRefObject, IOrder_Info
 
     public void CloseTable(int tableID)
     {
-        if(!activeTables.ContainsKey(tableID))
+        if(!IsTableActive(tableID))
         {
             WriteTableError(tableID);
             return;
@@ -52,7 +52,7 @@ public class OrderInfo : MarshalByRefObject, IOrder_Info
 
     public void AddNewOrder(int tableID, Order newOrder)
     {
-        if(!CheckIfTableIsActive(tableID))
+        if(!IsTableActive(tableID))
         {
             WriteTableError(tableID);
             return;
@@ -63,7 +63,7 @@ public class OrderInfo : MarshalByRefObject, IOrder_Info
 
     public Order GetOrder(int tableID, int orderID)
     {
-        if (!CheckIfTableIsActive(tableID))
+        if (!IsTableActive(tableID))
         {
             WriteTableError(tableID);
             return null;
@@ -79,7 +79,7 @@ public class OrderInfo : MarshalByRefObject, IOrder_Info
 
     public List<Order> GetAllTableOrders(int tableID)
     {
-        if (!activeTables.ContainsKey(tableID))
+        if (!IsTableActive(tableID))
         {
             Console.WriteLine("The table with the ID " + tableID + " is not active.");
             Console.WriteLine("Operation not succeeded.");
