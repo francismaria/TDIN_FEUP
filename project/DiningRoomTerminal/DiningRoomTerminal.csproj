@@ -46,14 +46,35 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="DiningRoomWindow.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="DiningRoomWindow.Designer.cs">
+      <DependentUpon>DiningRoomWindow.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TablesControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TablesControl.Designer.cs">
+      <DependentUpon>TablesControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OrdersReadyControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="OrdersReadyControl.Designer.cs">
+      <DependentUpon>OrdersReadyControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OrdersInfoControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="OrdersInfoControl.Designer.cs">
+      <DependentUpon>OrdersInfoControl.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="DiningRoomWindow.resx">
+      <DependentUpon>DiningRoomWindow.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -63,6 +84,15 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="TablesControl.resx">
+      <DependentUpon>TablesControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OrdersReadyControl.resx">
+      <DependentUpon>OrdersReadyControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OrdersInfoControl.resx">
+      <DependentUpon>OrdersInfoControl.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
