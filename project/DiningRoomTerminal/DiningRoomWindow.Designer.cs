@@ -34,9 +34,9 @@
             this.tablesBtn = new System.Windows.Forms.Button();
             this.titlePanel = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.tablesControl = new DiningRoomTerminal.TablesControl();
-            this.ordersReadyControl = new DiningRoomTerminal.OrdersReadyControl();
             this.ordersInfoControl = new DiningRoomTerminal.OrdersInfoControl();
+            this.ordersReadyControl = new DiningRoomTerminal.OrdersReadyControl();
+            this.tablesControl = new DiningRoomTerminal.TablesControl();
             this.btnsPanel.SuspendLayout();
             this.titlePanel.SuspendLayout();
             this.SuspendLayout();
@@ -50,7 +50,7 @@
             this.btnsPanel.Dock = System.Windows.Forms.DockStyle.Left;
             this.btnsPanel.Location = new System.Drawing.Point(0, 0);
             this.btnsPanel.Name = "btnsPanel";
-            this.btnsPanel.Size = new System.Drawing.Size(358, 1254);
+            this.btnsPanel.Size = new System.Drawing.Size(358, 1402);
             this.btnsPanel.TabIndex = 0;
             // 
             // ordersInfoBtn
@@ -67,7 +67,7 @@
             this.ordersInfoBtn.TabIndex = 3;
             this.ordersInfoBtn.Text = "Orders Info";
             this.ordersInfoBtn.UseVisualStyleBackColor = false;
-            this.ordersInfoBtn.Click += new System.EventHandler(this.Button1_Click_1);
+            this.ordersInfoBtn.Click += new System.EventHandler(this.OrdersInfoBtn_Click);
             // 
             // ordersReadyBtn
             // 
@@ -83,7 +83,7 @@
             this.ordersReadyBtn.TabIndex = 2;
             this.ordersReadyBtn.Text = "Orders Ready";
             this.ordersReadyBtn.UseVisualStyleBackColor = false;
-            this.ordersReadyBtn.Click += new System.EventHandler(this.Button1_Click);
+            this.ordersReadyBtn.Click += new System.EventHandler(this.OrdersReadyBtn_Click);
             // 
             // tablesBtn
             // 
@@ -99,6 +99,7 @@
             this.tablesBtn.TabIndex = 0;
             this.tablesBtn.Text = "Tables";
             this.tablesBtn.UseVisualStyleBackColor = false;
+            this.tablesBtn.Click += new System.EventHandler(this.TablesBtn_Click);
             // 
             // titlePanel
             // 
@@ -107,54 +108,55 @@
             this.titlePanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.titlePanel.Location = new System.Drawing.Point(358, 0);
             this.titlePanel.Name = "titlePanel";
-            this.titlePanel.Size = new System.Drawing.Size(1640, 200);
+            this.titlePanel.Size = new System.Drawing.Size(1744, 196);
             this.titlePanel.TabIndex = 1;
             this.titlePanel.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel2_Paint);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.label1.Font = new System.Drawing.Font("Corbel", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(498, 56);
+            this.label1.Location = new System.Drawing.Point(0, 118);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(646, 78);
             this.label1.TabIndex = 0;
             this.label1.Text = "Dining Room Terminal";
             this.label1.Click += new System.EventHandler(this.Label1_Click);
             // 
-            // tablesControl
+            // ordersInfoControl
             // 
-            this.tablesControl.Location = new System.Drawing.Point(358, 198);
-            this.tablesControl.Name = "userControl11";
-            this.tablesControl.Size = new System.Drawing.Size(1640, 1056);
-            this.tablesControl.TabIndex = 2;
+            this.ordersInfoControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ordersInfoControl.Location = new System.Drawing.Point(358, 196);
+            this.ordersInfoControl.Name = "ordersInfoControl";
+            this.ordersInfoControl.Size = new System.Drawing.Size(1744, 1206);
+            this.ordersInfoControl.TabIndex = 4;
+            this.ordersInfoControl.Load += new System.EventHandler(this.OrdersInfoControl1_Load);
             // 
             // ordersReadyControl
             // 
             this.ordersReadyControl.Location = new System.Drawing.Point(358, 195);
-            this.ordersReadyControl.Name = "userControl21";
+            this.ordersReadyControl.Name = "ordersReadyControl";
             this.ordersReadyControl.Size = new System.Drawing.Size(1640, 1056);
             this.ordersReadyControl.TabIndex = 3;
             // 
-            // ordersInfoControl
+            // tablesControl
             // 
-            this.ordersInfoControl.Location = new System.Drawing.Point(358, 195);
-            this.ordersInfoControl.Name = "ordersInfoControl1";
-            this.ordersInfoControl.Size = new System.Drawing.Size(1640, 1056);
-            this.ordersInfoControl.TabIndex = 4;
-            this.ordersInfoControl.Load += new System.EventHandler(this.OrdersInfoControl1_Load);
+            this.tablesControl.Location = new System.Drawing.Point(358, 195);
+            this.tablesControl.Name = "tablesControl";
+            this.tablesControl.Size = new System.Drawing.Size(1640, 1059);
+            this.tablesControl.TabIndex = 2;
             // 
             // DiningRoomWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1998, 1254);
+            this.ClientSize = new System.Drawing.Size(2102, 1402);
             this.Controls.Add(this.ordersInfoControl);
             this.Controls.Add(this.ordersReadyControl);
             this.Controls.Add(this.tablesControl);
             this.Controls.Add(this.titlePanel);
             this.Controls.Add(this.btnsPanel);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Sizable;
             this.Name = "DiningRoomWindow";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);

@@ -16,5 +16,15 @@ namespace DiningRoomTerminal
         {
             InitializeComponent();
         }
+
+        private void TablesControl_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Table7_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

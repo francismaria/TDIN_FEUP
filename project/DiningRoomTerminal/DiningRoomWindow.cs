@@ -34,14 +34,25 @@ namespace DiningRoomTerminal
             ordersInfoControl.Hide();
         }
 
-        private void Button1_Click(object sender, EventArgs e)
+        private void TablesBtn_Click(object sender, EventArgs e)
         {
-
+            tablesControl.Show();
+            ordersReadyControl.Hide();
+            ordersInfoControl.Hide();
         }
 
-        private void Button1_Click_1(object sender, EventArgs e)
+        private void OrdersReadyBtn_Click(object sender, EventArgs e)
         {
+            tablesControl.Hide();
+            ordersReadyControl.Show();
+            ordersInfoControl.Hide();
+        }
 
+        private void OrdersInfoBtn_Click(object sender, EventArgs e)
+        {
+            tablesControl.Hide();
+            ordersReadyControl.Hide();
+            ordersInfoControl.Show();
         }
 
         private void TablesPanel_Paint(object sender, PaintEventArgs e)
@@ -53,5 +64,7 @@ namespace DiningRoomTerminal
         {
 
         }
+
+
     }
 }

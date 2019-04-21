@@ -10,3 +10,4 @@ C:\Users\Francisco Maria\source\repos\project\DiningRoomTerminal\obj\Debug\Dinin
 C:\Users\Francisco Maria\source\repos\project\DiningRoomTerminal\obj\Debug\DiningRoomTerminal.TablesControl.resources
 C:\Users\Francisco Maria\source\repos\project\DiningRoomTerminal\obj\Debug\DiningRoomTerminal.OrdersReadyControl.resources
 C:\Users\Francisco Maria\source\repos\project\DiningRoomTerminal\obj\Debug\DiningRoomTerminal.OrdersInfoControl.resources
+C:\Users\Francisco Maria\source\repos\project\DiningRoomTerminal\obj\Debug\DiningRoomTerminal.csprojAssemblyReference.cache
