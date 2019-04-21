@@ -5,9 +5,10 @@ using System.Threading;
 
 public class OrderInfo : MarshalByRefObject, IOrder_Info
 {
-    // Destination table ID : All the orders that were requested to that table
-    Dictionary<int, List<Order>> ordersHistory = new Dictionary<int, List<Order>>();
-    Dictionary<int, List<Order>> activeTables = new Dictionary<int, List<Order>>();
+
+    Dictionary<int, Meal> activeTables = new Dictionary<int, Meal>();
+
+    Dictionary<int, List<Meal>> mealsHistory = new Dictionary<int, List<Meal>>();
 
     // -- Events -- 
 
@@ -25,13 +26,6 @@ public class OrderInfo : MarshalByRefObject, IOrder_Info
         return activeTables.ContainsKey(tableID);
     }
 
-    private void WriteTableError(int tableID)
-    {
-
-        Console.WriteLine("The table with the ID " + tableID + " is not active.");
-        Console.WriteLine("Operation not succeeded.");
-    }
-
     public void OpenTable(int tableID)
     {
         if(IsTableActive(tableID))
@@ -39,8 +33,9 @@ public class OrderInfo : MarshalByRefObject, IOrder_Info
             Console.WriteLine("Table is already opened.");      //Send an error message to appear
             return;
         }
-        List<Order> tableOrderList = new List<Order>();
-        activeTables.Add(tableID, tableOrderList);
+
+        Meal newMeal = new Meal(tableID);
+        activeTables.Add(tableID, newMeal);
         UpdateActiveTables();
     }
 
@@ -48,11 +43,14 @@ public class OrderInfo : MarshalByRefObject, IOrder_Info
     {
         if(!IsTableActive(tableID))
         {
-            WriteTableError(tableID);
+            Console.WriteLine("Table is not active.");      //Send an error message to appear
             return;
         }
 
-        ordersHistory.Add(tableID, activeTables[tableID]);
+        if (!mealsHistory.ContainsKey(tableID))
+            mealsHistory.Add(tableID, new List<Meal>());
+
+        mealsHistory[tableID].Add(activeTables[tableID]);
         activeTables.Remove(tableID);
         UpdateActiveTables();
     }
@@ -61,45 +59,28 @@ public class OrderInfo : MarshalByRefObject, IOrder_Info
     {
         if(!IsTableActive(tableID))
         {
-            WriteTableError(tableID);
             return;
         }
 
-        activeTables[tableID].Add(newOrder);
+        activeTables[tableID].addOrder(newOrder);
     }
 
     public Order GetOrder(int tableID, int orderID)
     {
         if (!IsTableActive(tableID))
         {
-            WriteTableError(tableID);
+           // WriteTableError(tableID);
             return null;
         }
 
-        foreach(Order tableOrder in activeTables[tableID])
-        {
-            if (tableOrder.getID() == orderID)  
-                return tableOrder;
-        }
-        return null;
-    }
-
-    public List<Order> GetAllTableOrders(int tableID)
-    {
-        if (!IsTableActive(tableID))
-        {
-            WriteTableError(tableID);
-            return null;
-        }
-
-        return activeTables[tableID];
+        return activeTables[tableID].getOrder(orderID);
     }
 
     public override object InitializeLifetimeService()
     {
         return null;
     }
-
+    
     void UpdateActiveTables()
     {
         if (updateActiveTablesEvent != null)
