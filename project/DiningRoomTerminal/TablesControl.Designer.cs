@@ -54,6 +54,7 @@
             this.table1.TabIndex = 0;
             this.table1.Text = "Table 1";
             this.table1.UseVisualStyleBackColor = true;
+            this.table1.Click += new System.EventHandler(this.Table1_Click);
             // 
             // table2
             // 
@@ -63,6 +64,7 @@
             this.table2.TabIndex = 1;
             this.table2.Text = "Table 2";
             this.table2.UseVisualStyleBackColor = true;
+            this.table2.Click += new System.EventHandler(this.Table2_Click);
             // 
             // table3
             // 
@@ -72,6 +74,7 @@
             this.table3.TabIndex = 2;
             this.table3.Text = "Table 3";
             this.table3.UseVisualStyleBackColor = true;
+            this.table3.Click += new System.EventHandler(this.Table3_Click);
             // 
             // table4
             // 
@@ -81,6 +84,7 @@
             this.table4.TabIndex = 3;
             this.table4.Text = "Table 4";
             this.table4.UseVisualStyleBackColor = true;
+            this.table4.Click += new System.EventHandler(this.Table4_Click);
             // 
             // table5
             // 
@@ -90,6 +94,7 @@
             this.table5.TabIndex = 7;
             this.table5.Text = "Table 5";
             this.table5.UseVisualStyleBackColor = true;
+            this.table5.Click += new System.EventHandler(this.Table5_Click);
             // 
             // table6
             // 
@@ -99,6 +104,7 @@
             this.table6.TabIndex = 6;
             this.table6.Text = "Table 6";
             this.table6.UseVisualStyleBackColor = true;
+            this.table6.Click += new System.EventHandler(this.Table6_Click);
             // 
             // table7
             // 
@@ -118,6 +124,7 @@
             this.table8.TabIndex = 4;
             this.table8.Text = "Table 8";
             this.table8.UseVisualStyleBackColor = true;
+            this.table8.Click += new System.EventHandler(this.Table8_Click);
             // 
             // table9
             // 
@@ -127,6 +134,7 @@
             this.table9.TabIndex = 11;
             this.table9.Text = "Table 9";
             this.table9.UseVisualStyleBackColor = true;
+            this.table9.Click += new System.EventHandler(this.Table9_Click);
             // 
             // table10
             // 
@@ -136,6 +144,7 @@
             this.table10.TabIndex = 10;
             this.table10.Text = "Table 10";
             this.table10.UseVisualStyleBackColor = true;
+            this.table10.Click += new System.EventHandler(this.Table10_Click);
             // 
             // table11
             // 
@@ -145,6 +154,7 @@
             this.table11.TabIndex = 9;
             this.table11.Text = "Table11";
             this.table11.UseVisualStyleBackColor = true;
+            this.table11.Click += new System.EventHandler(this.Table11_Click);
             // 
             // table12
             // 
@@ -154,6 +164,7 @@
             this.table12.TabIndex = 8;
             this.table12.Text = "Table 12";
             this.table12.UseVisualStyleBackColor = true;
+            this.table12.Click += new System.EventHandler(this.Table12_Click);
             // 
             // table13
             // 
@@ -163,6 +174,7 @@
             this.table13.TabIndex = 15;
             this.table13.Text = "Table 13";
             this.table13.UseVisualStyleBackColor = true;
+            this.table13.Click += new System.EventHandler(this.Table13_Click);
             // 
             // table14
             // 
@@ -172,6 +184,7 @@
             this.table14.TabIndex = 14;
             this.table14.Text = "Table 14";
             this.table14.UseVisualStyleBackColor = true;
+            this.table14.Click += new System.EventHandler(this.Table14_Click);
             // 
             // table15
             // 
@@ -181,6 +194,7 @@
             this.table15.TabIndex = 13;
             this.table15.Text = "Table 15";
             this.table15.UseVisualStyleBackColor = true;
+            this.table15.Click += new System.EventHandler(this.Table15_Click);
             // 
             // table16
             // 
@@ -190,6 +204,7 @@
             this.table16.TabIndex = 12;
             this.table16.Text = "Table 16";
             this.table16.UseVisualStyleBackColor = true;
+            this.table16.Click += new System.EventHandler(this.Table16_Click);
             // 
             // TablesControl
             // 

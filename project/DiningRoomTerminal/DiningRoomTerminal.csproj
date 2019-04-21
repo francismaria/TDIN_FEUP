@@ -54,6 +54,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TablePopupForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TablePopupForm.Designer.cs">
+      <DependentUpon>TablePopupForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="TablesControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -84,6 +90,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="TablePopupForm.resx">
+      <DependentUpon>TablePopupForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="TablesControl.resx">
       <DependentUpon>TablesControl.cs</DependentUpon>
     </EmbeddedResource>
