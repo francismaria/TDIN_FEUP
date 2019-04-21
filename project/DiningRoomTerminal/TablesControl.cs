@@ -139,7 +139,7 @@ namespace DiningRoomTerminal
                 if (dialogresult == DialogResult.OK)
                 {
                     //openTable
-                    Console.WriteLine("OPEN TABLE " +  tableID);
+                    Console.WriteLine("CLOSE TABLE " +  tableID);
                 }
             } else {
                 tablePopup = new TablePopupForm(tableID, false);
@@ -148,7 +148,7 @@ namespace DiningRoomTerminal
                 if (dialogresult == DialogResult.OK)
                 {
                     //closeTable
-                    Console.WriteLine("CLOSE TABLE " +  tableID);
+                    Console.WriteLine("OPEN TABLE " +  tableID);
                 }
             }
             tablePopup.Dispose();

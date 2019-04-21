@@ -52,7 +52,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(830, 59);
             this.label1.TabIndex = 2;
-            this.label1.Text = "Would you like top open table # X?";
+            this.label1.Text = "Would you like top open table #?";
             // 
             // closeTableBtn
             // 
@@ -63,6 +63,7 @@
             this.closeTableBtn.TabIndex = 3;
             this.closeTableBtn.Text = "Close Table";
             this.closeTableBtn.UseVisualStyleBackColor = true;
+            this.closeTableBtn.Click += new System.EventHandler(this.CloseTableBtn_Click);
             // 
             // TablePopupForm
             // 
@@ -78,6 +79,11 @@
             this.ResumeLayout(false);
             this.PerformLayout();
 
+        }
+
+        private void hideCloseButton()
+        {
+            this.closeTableBtn.Hide();
         }
 
         #endregion
