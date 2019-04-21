@@ -30,10 +30,12 @@
         {
             this.OpenTable = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.closeTableBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // OpenTable
             // 
+            this.OpenTable.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.OpenTable.Location = new System.Drawing.Point(297, 306);
             this.OpenTable.Name = "OpenTable";
             this.OpenTable.Size = new System.Drawing.Size(327, 101);
@@ -52,11 +54,22 @@
             this.label1.TabIndex = 2;
             this.label1.Text = "Would you like top open table # X?";
             // 
+            // closeTableBtn
+            // 
+            this.closeTableBtn.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.closeTableBtn.Location = new System.Drawing.Point(297, 306);
+            this.closeTableBtn.Name = "closeTableBtn";
+            this.closeTableBtn.Size = new System.Drawing.Size(327, 101);
+            this.closeTableBtn.TabIndex = 3;
+            this.closeTableBtn.Text = "Close Table";
+            this.closeTableBtn.UseVisualStyleBackColor = true;
+            // 
             // TablePopupForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(932, 510);
+            this.Controls.Add(this.closeTableBtn);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.OpenTable);
             this.Name = "TablePopupForm";
@@ -70,5 +83,6 @@
         #endregion
         private System.Windows.Forms.Button OpenTable;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button closeTableBtn;
     }
 }

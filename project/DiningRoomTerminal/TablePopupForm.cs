@@ -12,7 +12,7 @@ namespace DiningRoomTerminal
 {
     public partial class TablePopupForm : Form
     {
-        public TablePopupForm()
+        public TablePopupForm(int tableID, bool active)
         {
             InitializeComponent();
         }
