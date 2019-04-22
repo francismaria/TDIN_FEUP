@@ -28,7 +28,7 @@ namespace DiningRoomTerminal
 
         private void TablesControl_Load(object sender, EventArgs e)
         {
-
+            newOrderControl1.Hide();
         }
 
         private void Table1_Click(object sender, EventArgs e)
@@ -149,9 +149,15 @@ namespace DiningRoomTerminal
                 {
                     //closeTable
                     Console.WriteLine("OPEN TABLE " +  tableID);
+                    newOrderControl1.Show();
                 }
             }
             tablePopup.Dispose();
+        }
+
+        public void resetPresentation()
+        {
+            newOrderControl1.Hide();
         }
 
         private bool isTableActive(int tableID)

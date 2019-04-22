@@ -36,6 +36,7 @@ namespace DiningRoomTerminal
 
         private void TablesBtn_Click(object sender, EventArgs e)
         {
+            tablesControl.resetPresentation();
             tablesControl.Show();
             ordersReadyControl.Hide();
             ordersInfoControl.Hide();
@@ -43,6 +44,7 @@ namespace DiningRoomTerminal
 
         private void OrdersReadyBtn_Click(object sender, EventArgs e)
         {
+            tablesControl.resetPresentation();
             tablesControl.Hide();
             ordersReadyControl.Show();
             ordersInfoControl.Hide();
@@ -50,6 +52,7 @@ namespace DiningRoomTerminal
 
         private void OrdersInfoBtn_Click(object sender, EventArgs e)
         {
+            tablesControl.resetPresentation();
             tablesControl.Hide();
             ordersReadyControl.Hide();
             ordersInfoControl.Show();

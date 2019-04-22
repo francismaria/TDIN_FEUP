@@ -55,6 +55,12 @@
     <Compile Include="DiningRoomWindow.Designer.cs">
       <DependentUpon>DiningRoomWindow.cs</DependentUpon>
     </Compile>
+    <Compile Include="DrinksChoiceControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DrinksChoiceControl.Designer.cs">
+      <DependentUpon>DrinksChoiceControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TablePopupForm.cs">
@@ -81,8 +87,17 @@
     <Compile Include="OrdersInfoControl.Designer.cs">
       <DependentUpon>OrdersInfoControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="NewOrderControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NewOrderControl.Designer.cs">
+      <DependentUpon>NewOrderControl.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="DiningRoomWindow.resx">
       <DependentUpon>DiningRoomWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DrinksChoiceControl.resx">
+      <DependentUpon>DrinksChoiceControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -104,6 +119,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="OrdersInfoControl.resx">
       <DependentUpon>OrdersInfoControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewOrderControl.resx">
+      <DependentUpon>NewOrderControl.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

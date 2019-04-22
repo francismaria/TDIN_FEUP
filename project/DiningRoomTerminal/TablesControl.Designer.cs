@@ -44,6 +44,7 @@
             this.table14 = new System.Windows.Forms.Button();
             this.table15 = new System.Windows.Forms.Button();
             this.table16 = new System.Windows.Forms.Button();
+            this.newOrderControl1 = new DiningRoomTerminal.NewOrderControl();
             this.SuspendLayout();
             // 
             // table1
@@ -206,10 +207,18 @@
             this.table16.UseVisualStyleBackColor = true;
             this.table16.Click += new System.EventHandler(this.Table16_Click);
             // 
+            // newOrderControl1
+            // 
+            this.newOrderControl1.Location = new System.Drawing.Point(3, 0);
+            this.newOrderControl1.Name = "newOrderControl1";
+            this.newOrderControl1.Size = new System.Drawing.Size(1744, 1206);
+            this.newOrderControl1.TabIndex = 16;
+            // 
             // TablesControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.newOrderControl1);
             this.Controls.Add(this.table13);
             this.Controls.Add(this.table14);
             this.Controls.Add(this.table15);
@@ -251,5 +260,6 @@
         private System.Windows.Forms.Button table14;
         private System.Windows.Forms.Button table15;
         private System.Windows.Forms.Button table16;
+        private NewOrderControl newOrderControl1;
     }
 }

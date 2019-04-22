@@ -12,16 +12,15 @@ namespace DiningRoomTerminal
 {
     public partial class TablePopupForm : Form
     {
-        int tableID;
-        bool active;
 
         public TablePopupForm(int tableID, bool active)
         {
-            this.tableID = tableID;
-            this.active = active;
             InitializeComponent();
-            if (active)
-                this.hideCloseButton();
+            if (!active)
+            {
+                hideCloseButton();
+                hideCloseLabel();
+            }
         }
 
         private void Label1_Click(object sender, EventArgs e)
