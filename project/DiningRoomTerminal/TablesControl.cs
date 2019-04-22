@@ -168,13 +168,14 @@ namespace DiningRoomTerminal
             return false;
         }
 
-
         public void updateTables(List<int> newActiveTables)
         {
             activeTables = newActiveTables;
             foreach(int i in activeTables)
             {
-                Console.WriteLine(i);
+                var btnToActivate = "table" + i.ToString();
+                var btn = Controls.OfType<Button>().FirstOrDefault(b => b.Name == btnToActivate);
+                btn.BackColor = Color.Green;
             }
             Console.WriteLine("EVENT RECEIVED!!!");
         }
