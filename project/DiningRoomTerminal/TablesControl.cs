@@ -19,9 +19,7 @@ namespace DiningRoomTerminal
         {
             activeTables = new List<int>();
 
-            // DEBUG
-            activeTables.Add(2);
-            activeTables.Add(4);
+            ConnectionObject.UpdateActiveTables(updateTables);
 
             InitializeComponent();
         }
@@ -126,6 +124,11 @@ namespace DiningRoomTerminal
             showTablePopup(TABLE_ID);
         }
 
+        public void resetPresentation()
+        {
+            newOrderControl1.hideAll();
+        }
+
         private void showTablePopup(int tableID)
         {
             TablePopupForm tablePopup;
@@ -155,11 +158,6 @@ namespace DiningRoomTerminal
             tablePopup.Dispose();
         }
 
-        public void resetPresentation()
-        {
-            newOrderControl1.hideAll();
-        }
-
         private bool isTableActive(int tableID)
         {
             foreach(int id in activeTables)
@@ -169,5 +167,17 @@ namespace DiningRoomTerminal
             }
             return false;
         }
+
+
+        public void updateTables(List<int> newActiveTables)
+        {
+            activeTables = newActiveTables;
+            foreach(int i in activeTables)
+            {
+                Console.WriteLine(i);
+            }
+            Console.WriteLine("EVENT RECEIVED!!!");
+        }
+
     }
 }

@@ -15,3 +15,6 @@ C:\Users\Francisco Maria\source\repos\project\DiningRoomTerminal\obj\Debug\Dinin
 C:\Users\Francisco Maria\source\repos\project\DiningRoomTerminal\obj\Debug\DiningRoomTerminal.NewOrderControl.resources
 C:\Users\Francisco Maria\source\repos\project\DiningRoomTerminal\obj\Debug\DiningRoomTerminal.DrinksChoiceControl.resources
 C:\Users\Francisco Maria\source\repos\project\DiningRoomTerminal\obj\Debug\DiningRoomTerminal.FoodChoiceControl.resources
+C:\Users\Francisco Maria\source\repos\project\DiningRoomTerminal\bin\Debug\Common.dll
+C:\Users\Francisco Maria\source\repos\project\DiningRoomTerminal\bin\Debug\Common.pdb
+C:\Users\Francisco Maria\source\repos\project\DiningRoomTerminal\obj\Debug\DiningRoomTerminal.csproj.CopyComplete
