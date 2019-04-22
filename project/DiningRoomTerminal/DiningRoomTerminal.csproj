@@ -61,6 +61,12 @@
     <Compile Include="DrinksChoiceControl.Designer.cs">
       <DependentUpon>DrinksChoiceControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="FoodChoiceControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FoodChoiceControl.Designer.cs">
+      <DependentUpon>FoodChoiceControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TablePopupForm.cs">
@@ -98,6 +104,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DrinksChoiceControl.resx">
       <DependentUpon>DrinksChoiceControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FoodChoiceControl.resx">
+      <DependentUpon>FoodChoiceControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

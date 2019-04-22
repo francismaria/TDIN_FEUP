@@ -22,6 +22,11 @@ namespace DiningRoomTerminal
             drinksChoiceControl1.Hide();
         }
 
+        private void FoodChoiceControl1_Load(object sender, EventArgs e)
+        {
+            foodChoiceControl1.Hide();
+        }
+
         private void DrinksBtn_Click(object sender, EventArgs e)
         {
             drinksChoiceControl1.Show();
@@ -29,7 +34,16 @@ namespace DiningRoomTerminal
 
         private void FoodBtn_Click(object sender, EventArgs e)
         {
-
+            foodChoiceControl1.Show();
         }
+
+        public void hideAll()
+        {
+            drinksChoiceControl1.Hide();
+            foodChoiceControl1.Hide();
+            Hide();
+        }
+
+
     }
 }

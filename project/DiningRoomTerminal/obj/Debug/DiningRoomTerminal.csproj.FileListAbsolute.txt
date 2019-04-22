@@ -14,3 +14,4 @@ C:\Users\Francisco Maria\source\repos\project\DiningRoomTerminal\obj\Debug\Dinin
 C:\Users\Francisco Maria\source\repos\project\DiningRoomTerminal\obj\Debug\DiningRoomTerminal.TablePopupForm.resources
 C:\Users\Francisco Maria\source\repos\project\DiningRoomTerminal\obj\Debug\DiningRoomTerminal.NewOrderControl.resources
 C:\Users\Francisco Maria\source\repos\project\DiningRoomTerminal\obj\Debug\DiningRoomTerminal.DrinksChoiceControl.resources
+C:\Users\Francisco Maria\source\repos\project\DiningRoomTerminal\obj\Debug\DiningRoomTerminal.FoodChoiceControl.resources

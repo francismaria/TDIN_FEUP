@@ -157,7 +157,7 @@ namespace DiningRoomTerminal
 
         public void resetPresentation()
         {
-            newOrderControl1.Hide();
+            newOrderControl1.hideAll();
         }
 
         private bool isTableActive(int tableID)

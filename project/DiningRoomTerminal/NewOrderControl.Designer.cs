@@ -31,6 +31,7 @@
             this.foodBtn = new System.Windows.Forms.Button();
             this.drinksBtn = new System.Windows.Forms.Button();
             this.drinksChoiceControl1 = new DiningRoomTerminal.DrinksChoiceControl();
+            this.foodChoiceControl1 = new DiningRoomTerminal.FoodChoiceControl();
             this.SuspendLayout();
             // 
             // foodBtn
@@ -61,10 +62,19 @@
             this.drinksChoiceControl1.TabIndex = 3;
             this.drinksChoiceControl1.Load += new System.EventHandler(this.DrinksChoiceControl1_Load);
             // 
+            // foodChoiceControl1
+            // 
+            this.foodChoiceControl1.Location = new System.Drawing.Point(0, 0);
+            this.foodChoiceControl1.Name = "foodChoiceControl1";
+            this.foodChoiceControl1.Size = new System.Drawing.Size(1744, 1206);
+            this.foodChoiceControl1.TabIndex = 4;
+            this.foodChoiceControl1.Load += new System.EventHandler(this.FoodChoiceControl1_Load);
+            // 
             // NewOrderControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.foodChoiceControl1);
             this.Controls.Add(this.drinksChoiceControl1);
             this.Controls.Add(this.drinksBtn);
             this.Controls.Add(this.foodBtn);
@@ -79,5 +89,6 @@
         private System.Windows.Forms.Button foodBtn;
         private System.Windows.Forms.Button drinksBtn;
         private DrinksChoiceControl drinksChoiceControl1;
+        private FoodChoiceControl foodChoiceControl1;
     }
 }
