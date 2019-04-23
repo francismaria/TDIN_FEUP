@@ -168,6 +168,10 @@ namespace DiningRoomTerminal
             return false;
         }
 
+        /**
+         * Function which handles the events that are received concerning the
+         * tables update
+         */
         public void updateTables(List<int> newActiveTables)
         {
             activeTables = newActiveTables;
@@ -179,6 +183,5 @@ namespace DiningRoomTerminal
             }
             Console.WriteLine("EVENT RECEIVED!!!");
         }
-
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace BarTerminal
 {
-    partial class BarWindow
+    partial class Form1
     {
         /// <summary>
         /// Required designer variable.
@@ -52,17 +52,17 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1640, 200);
             this.panel2.TabIndex = 1;
-            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel2_Paint);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.label1.Font = new System.Drawing.Font("Corbel", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(498, 56);
+            this.label1.Location = new System.Drawing.Point(0, 122);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(646, 78);
+            this.label1.Size = new System.Drawing.Size(381, 78);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Dining Room Terminal";
+            this.label1.Text = "Bar Terminal";
             this.label1.Click += new System.EventHandler(this.Label1_Click);
             // 
             // Form1

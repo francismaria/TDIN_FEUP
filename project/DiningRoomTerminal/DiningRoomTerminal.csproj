@@ -49,7 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="ConnectionObject.cs" />
     <Compile Include="DiningRoomWindow.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -13,6 +13,8 @@ public class OrderInfo : MarshalByRefObject, IOrder_Info
     // -- Events -- 
 
     public event UpdateActiveTablesDelegate updateActiveTablesEvent;
+    public event SendOrderToKitchenDelegate sendOrderToKitchenEvent;
+    public event SendOrderToBarDelegate sendOrderToBarEvent;
 
     public OrderInfo()
     {
@@ -63,6 +65,11 @@ public class OrderInfo : MarshalByRefObject, IOrder_Info
         }
 
         activeTables[tableID].addOrder(newOrder);
+
+        if(newOrder.getType() == Order.ORDER_TYPE.KITCHEN)
+            SendOrderToKitchen(newOrder);
+        else
+            SendOrderToBar(newOrder);
     }
 
     public Order GetOrder(int tableID, int orderID)
@@ -80,6 +87,10 @@ public class OrderInfo : MarshalByRefObject, IOrder_Info
     {
         return null;
     }
+
+    /** ---------------------------------------
+     *          Event Propagations
+     *  --------------------------------------- */
     
     void UpdateActiveTables()
     {
@@ -99,6 +110,54 @@ public class OrderInfo : MarshalByRefObject, IOrder_Info
                     catch (Exception)
                     {
                         updateActiveTablesEvent -= handler;
+                        Console.WriteLine("Exception: Removed an event handler");
+                    }
+                }).Start();
+            }
+        }
+    }
+
+    void SendOrderToKitchen(Order newOrder)
+    {
+        if (sendOrderToKitchenEvent != null)
+        {
+            Delegate[] invkList = sendOrderToKitchenEvent.GetInvocationList();
+
+            foreach (SendOrderToKitchenDelegate handler in invkList)
+            {
+                new Thread(() => {
+                    try
+                    {
+                        handler(newOrder);
+                        Console.WriteLine("Invoking event handler");
+                    }
+                    catch (Exception)
+                    {
+                        sendOrderToKitchenEvent -= handler;
+                        Console.WriteLine("Exception: Removed an event handler");
+                    }
+                }).Start();
+            }
+        }
+    }
+
+    void SendOrderToBar(Order newOrder)
+    {
+        if (sendOrderToBarEvent != null)
+        {
+            Delegate[] invkList = sendOrderToBarEvent.GetInvocationList();
+
+            foreach (SendOrderToBarDelegate handler in invkList)
+            {
+                new Thread(() => {
+                    try
+                    {
+                        handler(newOrder);
+                        Console.WriteLine("Invoking event handler");
+                    }
+                    catch (Exception)
+                    {
+                        sendOrderToBarEvent -= handler;
                         Console.WriteLine("Exception: Removed an event handler");
                     }
                 }).Start();

@@ -76,6 +76,11 @@ public class Order
         return type;
     }
 
+    public void setState(ORDER_STATE state)
+    {
+        this.state = state;
+    }
+
     public override bool Equals(object obj)
     {
         if (obj == null || obj.GetType() != typeof(Order))

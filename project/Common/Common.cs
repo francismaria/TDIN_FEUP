@@ -8,6 +8,10 @@ public interface IOrder_Info
 {
     event UpdateActiveTablesDelegate updateActiveTablesEvent;
 
+    event SendOrderToKitchenDelegate sendOrderToKitchenEvent;
+
+    event SendOrderToBarDelegate sendOrderToBarEvent;
+
     void OpenTable(int tableID);
 
     void CloseTable(int tableID);
