@@ -22,16 +22,16 @@ namespace KitchenTerminal
             Console.WriteLine("Object was Initialized");
         }
 
-        public static void ReceiveNewOrder(Action<Order> receiveOrderFunc)
+        public static void ReceiveNewOrder(Action<Order> ReceiveOrderFunc)
         {
             sendOrderToKitchenRepeater = new SendOrderToKitchenRepeater();
-            sendOrderToKitchenRepeater.sendOrderToKitchenEvent += new SendOrderToKitchenDelegate(receiveOrderFunc);
+            sendOrderToKitchenRepeater.sendOrderToKitchenEvent += new SendOrderToKitchenDelegate(ReceiveOrderFunc);
             centralServer.sendOrderToKitchenEvent += new SendOrderToKitchenDelegate(sendOrderToKitchenRepeater.Repeater);
         }
 
         public static void UpdateOrderState(int tableID, int orderID, Order.ORDER_STATE state)
         {
-            centralServer.UpdateOrderState(tableID, orderID, state);
+            centralServer.UpdateKitchenOrderState(tableID, orderID, state);
         }
     }
 }

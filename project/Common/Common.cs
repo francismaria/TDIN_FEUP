@@ -16,9 +16,11 @@ public interface IOrder_Info
 
     void CloseTable(int tableID);
 
-    void UpdateOrderState(int tableID, int orderID, Order.ORDER_STATE state);
-
     void AddNewOrder(int tableID, Order newOrder);
+
+    void UpdateKitchenOrderState(int tableID, int orderID, Order.ORDER_STATE state);
+
+    void UpdateBarOrderState(int tableID, int orderID, Order.ORDER_STATE state);
     
     Order GetOrder(int tableID, int orderID);
 

@@ -72,7 +72,7 @@ public class OrderInfo : MarshalByRefObject, IOrder_Info
             SendOrderToBar(newOrder);
     }
 
-    public void UpdateOrderState(int tableID, int orderID, Order.ORDER_STATE state)
+    public void UpdateKitchenOrderState(int tableID, int orderID, Order.ORDER_STATE state)
     {
         if(!IsTableActive(tableID))
         {
@@ -82,6 +82,19 @@ public class OrderInfo : MarshalByRefObject, IOrder_Info
 
         activeTables[tableID].getOrder(orderID).setState(state);
         SendOrderToKitchen(activeTables[tableID].getOrder(orderID));
+    }
+
+
+    public void UpdateBarOrderState(int tableID, int orderID, Order.ORDER_STATE state)
+    {
+        if (!IsTableActive(tableID))
+        {
+            Console.WriteLine("Table is not active.");
+            return;
+        }
+
+        //activeTables[tableID].getOrder(orderID).setState(state);
+        //SendOrderToKitchen(activeTables[tableID].getOrder(orderID));
     }
 
     public Order GetOrder(int tableID, int orderID)
