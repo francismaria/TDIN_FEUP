@@ -4,10 +4,10 @@ C:\Users\Francisco Maria\source\repos\project\KitchenTerminal\bin\Debug\KitchenT
 C:\Users\Francisco Maria\source\repos\project\KitchenTerminal\bin\Debug\Common.dll
 C:\Users\Francisco Maria\source\repos\project\KitchenTerminal\bin\Debug\Common.pdb
 C:\Users\Francisco Maria\source\repos\project\KitchenTerminal\obj\Debug\KitchenTerminal.csprojAssemblyReference.cache
-C:\Users\Francisco Maria\source\repos\project\KitchenTerminal\obj\Debug\KitchenTerminal.Form1.resources
 C:\Users\Francisco Maria\source\repos\project\KitchenTerminal\obj\Debug\KitchenTerminal.Properties.Resources.resources
 C:\Users\Francisco Maria\source\repos\project\KitchenTerminal\obj\Debug\KitchenTerminal.csproj.GenerateResource.cache
 C:\Users\Francisco Maria\source\repos\project\KitchenTerminal\obj\Debug\KitchenTerminal.csproj.CoreCompileInputs.cache
 C:\Users\Francisco Maria\source\repos\project\KitchenTerminal\obj\Debug\KitchenTerminal.csproj.CopyComplete
 C:\Users\Francisco Maria\source\repos\project\KitchenTerminal\obj\Debug\KitchenTerminal.exe
 C:\Users\Francisco Maria\source\repos\project\KitchenTerminal\obj\Debug\KitchenTerminal.pdb
+C:\Users\Francisco Maria\source\repos\project\KitchenTerminal\obj\Debug\KitchenTerminal.KitchenWindow.resources
