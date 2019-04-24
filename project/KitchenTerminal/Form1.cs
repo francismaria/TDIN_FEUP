@@ -23,7 +23,8 @@ namespace KitchenTerminal
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            
+            int intTemp = Convert.ToInt32(Console.ReadLine());
+            ConnectionObject.UpdateOrderState(4, 2, Order.ORDER_STATE.IN_PREPARATION);
         }
 
         public void receiveOrderFunc(Order newOrder)
@@ -36,9 +37,17 @@ namespace KitchenTerminal
         private void substituteOrder(Order newOrder)
         {
             int index = preparingOrders.FindIndex(ind => ind.Equals(newOrder));
-            if (index != -1)
+            if (index == -1)
+            {
+                preparingOrders.Add(newOrder);
+            } else
             {
                 preparingOrders[index] = newOrder;
+            }
+
+            foreach (Order order in preparingOrders)
+            {
+                Console.WriteLine(order.getState());
             }
         }
     }

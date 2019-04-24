@@ -29,6 +29,10 @@ namespace KitchenTerminal
             centralServer.sendOrderToKitchenEvent += new SendOrderToKitchenDelegate(sendOrderToKitchenRepeater.Repeater);
         }
 
+        public static void UpdateOrderState(int tableID, int orderID, Order.ORDER_STATE state)
+        {
+            centralServer.UpdateOrderState(tableID, orderID, state);
+        }
     }
 }
 
