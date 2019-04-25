@@ -31,9 +31,7 @@ namespace KitchenTerminal
             }
 
             string[] tokens = ordersNotHandledBox.GetItemText(ordersNotHandledBox.SelectedItem).Split(' ');
-
-            Console.WriteLine(tokens[1] + ' ' + tokens[0]);
-            //ConnectionObject.UpdateOrderState(Convert.ToInt32(tokens[1]), Convert.ToInt32(tokens[0]), Order.ORDER_STATE.IN_PREPARATION);
+            ConnectionObject.UpdateOrderState(Convert.ToInt32(tokens[1]), Convert.ToInt32(tokens[0]), Order.ORDER_STATE.IN_PREPARATION);
         }
 
         private void SubstituteOrder(Order newOrder)
@@ -124,6 +122,7 @@ namespace KitchenTerminal
         {
             SubstituteOrder(newOrder);
             ClearNotHandledListBox(ordersNotHandledBox);
+            ClearInPreparationListBox(ordersInPreparationBox);
             UpdateListBoxes();
         }
 
