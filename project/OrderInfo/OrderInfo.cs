@@ -84,6 +84,7 @@ public class OrderInfo : MarshalByRefObject, IOrder_Info
 
         if(state == Order.ORDER_STATE.READY)
         {
+            activeTables[tableID].getOrder(orderID).setState(state);
             //returnOrderToDining(activeTables[tableID].getOrder(orderID));
             Console.WriteLine("ORDER IS READY");
             return;
