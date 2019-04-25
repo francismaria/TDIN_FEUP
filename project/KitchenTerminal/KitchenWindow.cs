@@ -12,6 +12,8 @@ namespace KitchenTerminal
 {
     public partial class KitchenWindow : Form
     {
+        private readonly object updateList = new object();
+
         List<Order> receivedOrders = new List<Order>();
 
         public KitchenWindow()
@@ -22,21 +24,31 @@ namespace KitchenTerminal
 
         private void PrepBtn_Click(object sender, EventArgs e)
         {
-            ordersNotHandledBox.GetItemText(ordersNotHandledBox.SelectedItem);
-            Console.WriteLine(ordersNotHandledBox.GetItemText(ordersNotHandledBox.SelectedItem));
-            //ConnectionObject.UpdateOrderState();
+            if(ordersNotHandledBox.SelectedIndex == -1)
+            {
+                Console.WriteLine("No order was selected");
+                return;
+            }
+
+            string[] tokens = ordersNotHandledBox.GetItemText(ordersNotHandledBox.SelectedItem).Split(' ');
+
+            Console.WriteLine(tokens[1] + ' ' + tokens[0]);
+            //ConnectionObject.UpdateOrderState(Convert.ToInt32(tokens[1]), Convert.ToInt32(tokens[0]), Order.ORDER_STATE.IN_PREPARATION);
         }
 
         private void SubstituteOrder(Order newOrder)
         {
-            int index = receivedOrders.FindIndex(ind => ind.Equals(newOrder));
-            if (index != -1)
+            lock (updateList)
             {
-                receivedOrders[index] = newOrder;
-            }
-            else
-            {
-                receivedOrders.Add(newOrder);
+                int index = receivedOrders.FindIndex(ind => ind.Equals(newOrder));
+                if (index != -1)
+                {
+                    receivedOrders[index] = newOrder;
+                }
+                else
+                {
+                    receivedOrders.Add(newOrder);
+                }
             }
         }
 
@@ -51,23 +63,27 @@ namespace KitchenTerminal
             }
             else
             {
-                list.Items.Add(order.getID() + "       " + order.getDescription());
+                string itemToList = Convert.ToString(order.getID()) + ' ' 
+                    + Convert.ToString(order.getDestinationTable()) + "       " 
+                    + order.getDescription();
+                list.Items.Add(itemToList);
             }
         }
 
         private void UpdateListBoxes()
         {
-            foreach(Order order in receivedOrders)
+            lock(updateList)
             {
-                if(order.getState() == Order.ORDER_STATE.NOT_PICKED)
+                foreach (Order order in receivedOrders)
                 {
-                    WriteToList(ordersNotHandledBox, order);
-                    //ordersNotHandledBox.Items.Add(order.getID() + ' ' + order.getDescription());
-                }
-                else      //Orders in preparation
-                {
-                    WriteToList(ordersInPreparationBox, order);
-                    //ordersInPreparationBox.Items.Add(order.getID() + ' ' + order.getDescription());
+                    if(order.getState() == Order.ORDER_STATE.NOT_PICKED)
+                    {            
+                        WriteToList(ordersNotHandledBox, order);
+                    }
+                    else      //Orders in preparation
+                    {
+                        WriteToList(ordersInPreparationBox, order);
+                    }
                 }
             }
         }
@@ -87,7 +103,6 @@ namespace KitchenTerminal
             }
             
         }
-
 
         delegate void ClearNotHandledListBoxCallback(ListBox list);
 

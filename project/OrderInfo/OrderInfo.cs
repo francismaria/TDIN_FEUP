@@ -13,7 +13,9 @@ public class OrderInfo : MarshalByRefObject, IOrder_Info
     // -- Events -- 
 
     public event UpdateActiveTablesDelegate updateActiveTablesEvent;
+
     public event SendOrderToKitchenDelegate sendOrderToKitchenEvent;
+
     public event SendOrderToBarDelegate sendOrderToBarEvent;
 
     public OrderInfo()
@@ -65,6 +67,8 @@ public class OrderInfo : MarshalByRefObject, IOrder_Info
         }
 
         activeTables[tableID].addOrder(newOrder);
+
+        Console.WriteLine(newOrder.getDescription() + ' ' + newOrder.getDestinationTable() + ' ' + newOrder.getID());
 
         if(newOrder.getType() == Order.ORDER_TYPE.KITCHEN)
             SendOrderToKitchen(newOrder);
