@@ -156,6 +156,7 @@
             this.readyBtn.TabIndex = 2;
             this.readyBtn.Text = "Ready";
             this.readyBtn.UseVisualStyleBackColor = true;
+            this.readyBtn.Click += new System.EventHandler(this.ReadyBtn_Click);
             // 
             // panel4
             // 

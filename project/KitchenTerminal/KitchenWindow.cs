@@ -34,6 +34,34 @@ namespace KitchenTerminal
             ConnectionObject.UpdateOrderState(Convert.ToInt32(tokens[1]), Convert.ToInt32(tokens[0]), Order.ORDER_STATE.IN_PREPARATION);
         }
 
+        private void ReadyBtn_Click(object sender, EventArgs e)
+        {
+            if (ordersInPreparationBox.SelectedIndex == -1)
+            {
+                Console.WriteLine("No order was selected");
+                return;
+            }
+
+            string[] tokens = ordersNotHandledBox.GetItemText(ordersInPreparationBox.SelectedItem).Split(' ');
+
+            ConnectionObject.UpdateOrderState(Convert.ToInt32(tokens[1]), Convert.ToInt32(tokens[0]), Order.ORDER_STATE.READY);
+
+            //REMOVES THE NOW READY ORDER FROM THE TERMINAL'S STORAGE
+            RemoveReceivedOrder(Convert.ToInt32(tokens[0]));
+            ordersInPreparationBox.Items.Remove(ordersInPreparationBox.SelectedItem);
+
+            ClearInPreparationListBox(ordersInPreparationBox);
+            UpdateListBoxes();
+        }
+
+        private void RemoveReceivedOrder(int orderID)
+        {
+            lock(updateList)
+            {
+                    receivedOrders.RemoveAll(order => order.getID() == orderID);
+            }
+        }
+
         private void SubstituteOrder(Order newOrder)
         {
             lock (updateList)
@@ -125,7 +153,5 @@ namespace KitchenTerminal
             ClearInPreparationListBox(ordersInPreparationBox);
             UpdateListBoxes();
         }
-
-
     }
 }

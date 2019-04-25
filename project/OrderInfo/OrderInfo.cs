@@ -68,8 +68,6 @@ public class OrderInfo : MarshalByRefObject, IOrder_Info
 
         activeTables[tableID].addOrder(newOrder);
 
-        Console.WriteLine(newOrder.getDescription() + ' ' + newOrder.getDestinationTable() + ' ' + newOrder.getID());
-
         if(newOrder.getType() == Order.ORDER_TYPE.KITCHEN)
             SendOrderToKitchen(newOrder);
         else
@@ -81,6 +79,13 @@ public class OrderInfo : MarshalByRefObject, IOrder_Info
         if(!IsTableActive(tableID))
         {
             Console.WriteLine("Table is not active.");
+            return;
+        }
+
+        if(state == Order.ORDER_STATE.READY)
+        {
+            //returnOrderToDining(activeTables[tableID].getOrder(orderID));
+            Console.WriteLine("ORDER IS READY");
             return;
         }
 
