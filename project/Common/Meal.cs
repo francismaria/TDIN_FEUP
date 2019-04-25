@@ -81,5 +81,13 @@ public class Meal
         orders.Add(order);
         totalPrice += order.getPrice();
     }
+
+    public void setAsPaid()
+    {
+        foreach(Order order in orders)
+        {
+            order.setState(Order.ORDER_STATE.PAID);
+        }
+    }
 }
 

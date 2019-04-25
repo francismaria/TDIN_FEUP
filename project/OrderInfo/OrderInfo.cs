@@ -51,6 +51,12 @@ public class OrderInfo : MarshalByRefObject, IOrder_Info
             return;
         }
 
+        /*if(!checkIfAllMealOrdersArePaid())
+        {
+            Console.WriteLine("Not all orders are paid");      //Send an error message to appear
+            return;
+        }*/
+
         if (!mealsHistory.ContainsKey(tableID))
             mealsHistory.Add(tableID, new List<Meal>());
 
@@ -77,6 +83,14 @@ public class OrderInfo : MarshalByRefObject, IOrder_Info
     public Meal GetMealInformation(int tableID)
     {
         return activeTables[tableID];
+    }
+
+    public void SetMealAsPaid(int tableID)
+    {
+        if (!activeTables.ContainsKey(tableID))
+            return;
+
+        activeTables[tableID].setAsPaid();
     }
 
     public void UpdateKitchenOrderState(int tableID, int orderID, Order.ORDER_STATE state)

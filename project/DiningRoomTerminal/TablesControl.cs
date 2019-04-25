@@ -12,7 +12,7 @@ namespace DiningRoomTerminal
 {
     public partial class TablesControl : UserControl
     {
-
+        private const int NUM_TABLES = 16;
         private List<int> activeTables;
 
         public TablesControl()
@@ -175,13 +175,30 @@ namespace DiningRoomTerminal
         public void updateTables(List<int> newActiveTables)
         {
             activeTables = newActiveTables;
+
+            for(int i = 1; i <= NUM_TABLES; i++)
+            {
+                var btnToActivate = "table" + i.ToString();
+                var btn = Controls.OfType<Button>().FirstOrDefault(b => b.Name == btnToActivate);
+
+                if (activeTables.Any(x => x == i))
+                {
+                    btn.BackColor = Color.Green;
+                } 
+                else
+                {
+                    btn.BackColor = Color.Red;
+                }
+            }
+            /*
             foreach(int i in activeTables)
             {
                 var btnToActivate = "table" + i.ToString();
                 var btn = Controls.OfType<Button>().FirstOrDefault(b => b.Name == btnToActivate);
                 btn.BackColor = Color.Green;
             }
-            Console.WriteLine("EVENT RECEIVED!!!");
+            Console.WriteLine("EVENT RECEIVED!!!");*/
         }
+
     }
 }

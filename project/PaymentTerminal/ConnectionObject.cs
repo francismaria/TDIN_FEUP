@@ -25,6 +25,17 @@ namespace PaymentTerminal
         {
             return centralServer.GetMealInformation(tableID);
         }
+
+        public static void SetMealAsPaid(int tableID)
+        {
+            centralServer.SetMealAsPaid(tableID);
+        }
+
+        public static void CloseTable(int tableID)
+        {
+            centralServer.CloseTable(tableID);
+        }
+
     }
 }
 
