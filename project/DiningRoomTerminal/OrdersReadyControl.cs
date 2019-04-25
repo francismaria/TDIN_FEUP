@@ -69,8 +69,26 @@ namespace DiningRoomTerminal
                 return;
             }
 
-            ordersReady.RemoveAll(x => x.getID() == getSelectedOrderID());
+            ClearNewOrderListBox(ordersDeliveredBox);
+            //ordersReady.RemoveAll(x => x.getID() == getSelectedOrderID());
+            ordersReady.RemoveAt(orderToRemoveIndex);
             DisplayNewOrders();
+        }
+
+        delegate void ClearNewOrderListBoxCallback(ListBox list);
+
+        private void ClearNewOrderListBox(ListBox list)
+        {
+            if (list.InvokeRequired)
+            {
+                ClearNewOrderListBoxCallback callback = new ClearNewOrderListBoxCallback(ClearNewOrderListBox);
+                Invoke(callback, list);
+            }
+            else
+            {
+                ordersDeliveredBox.Items.Clear();
+            }
+
         }
 
         private int getSelectedOrderID()
