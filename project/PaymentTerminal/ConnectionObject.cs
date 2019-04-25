@@ -3,23 +3,27 @@ using System.Collections.Generic;
 using System.Collections;
 using System.Runtime.Remoting;
 
-namespace KitchenTerminal
+namespace PaymentTerminal
 {
     static class ConnectionObject
     {
         static IOrder_Info centralServer;
-        static SendOrderToKitchenRepeater sendOrderToKitchenRepeater;
 
         static ConnectionObject()
         {
             Console.Write("CONNECTION OBJECT CALLED");
-            RemotingConfiguration.Configure("KitchenTerminal.exe.config", false);
+            RemotingConfiguration.Configure("PaymentTerminal.exe.config", false);
             centralServer = (IOrder_Info)RemoteNew.New(typeof(IOrder_Info));
         }
 
         public static void InitConnection()
         {
             Console.WriteLine("Object was Initialized");
+        }
+
+        public static Meal GetMealInformation(int tableID)
+        {
+            return centralServer.GetMealInformation(tableID);
         }
     }
 }

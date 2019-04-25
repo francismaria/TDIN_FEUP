@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-// -- Common Interface --
+// -- Common Interface to the Central Server Remote Object "Order_Info" --
 
 public interface IOrder_Info
 {
@@ -18,11 +18,11 @@ public interface IOrder_Info
 
     void AddNewOrder(int tableID, Order newOrder);
 
+    Meal GetMealInformation(int tableID);
+
     void UpdateKitchenOrderState(int tableID, int orderID, Order.ORDER_STATE state);
 
     void UpdateBarOrderState(int tableID, int orderID, Order.ORDER_STATE state);
-    
-    Order GetOrder(int tableID, int orderID);
 
 
 }

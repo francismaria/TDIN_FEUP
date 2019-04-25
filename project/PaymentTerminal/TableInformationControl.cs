@@ -13,6 +13,7 @@ namespace PaymentTerminal
     public partial class TableInformationControl : UserControl
     {
         private int tableID;
+        Meal mealToPay;
 
         public TableInformationControl()
         {
@@ -22,6 +23,13 @@ namespace PaymentTerminal
         public void SetTable(int tableID)
         {
             this.tableID = tableID;
+            mealToPay = ConnectionObject.GetMealInformation(tableID);
+            SetMealPriceToPay();
+        }
+
+        private void SetMealPriceToPay()
+        {
+            priceLabel.Text = mealToPay.getTotalPrice().ToString();
         }
 
         public int GetTable()
@@ -31,13 +39,12 @@ namespace PaymentTerminal
 
         private void Button1_Click(object sender, EventArgs e)
         {
-            //PAY ORDER
+            Console.WriteLine(mealToPay.getAllOrders().ToString());
         }
 
         private void BackBtn_Click(object sender, EventArgs e)
         {
             Hide();
         }
-
     }
 }

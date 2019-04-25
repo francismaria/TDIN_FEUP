@@ -53,7 +53,7 @@ namespace DiningRoomTerminal
             Order o1 = new Order("Bacalhau à Brás", destinationTable, 16.99, Order.ORDER_TYPE.KITCHEN);
             centralServer.AddNewOrder(destinationTable, o1);
 
-            Console.WriteLine("ashaha" + centralServer.GetOrder(destinationTable, 1).getPrice());
+            //Console.WriteLine("ashaha" + centralServer.GetOrder(destinationTable, 1).getPrice());
             centralServer.CloseTable(destinationTable);
             Console.ReadLine();
         }
