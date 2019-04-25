@@ -49,16 +49,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="ConnectionObject.cs" />
+    <Compile Include="PaymentTerminalWindow.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="PaymentTerminalWindow.Designer.cs">
+      <DependentUpon>PaymentTerminalWindow.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="TableInformationControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TableInformationControl.Designer.cs">
+      <DependentUpon>TableInformationControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TablesDisplayControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TablesDisplayControl.Designer.cs">
+      <DependentUpon>TablesDisplayControl.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="PaymentTerminalWindow.resx">
+      <DependentUpon>PaymentTerminalWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -69,6 +82,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="TableInformationControl.resx">
+      <DependentUpon>TableInformationControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TablesDisplayControl.resx">
+      <DependentUpon>TablesDisplayControl.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
