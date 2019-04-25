@@ -29,6 +29,29 @@ public class UpdateActiveTablesRepeater : MarshalByRefObject
 }
 
 /**
+ *      Sends a new order ready to the dining room - Dining Room
+ */
+
+public delegate void UpdateOrdersReadyDelegate(Order newOrderReady);
+
+public class UpdateOrdersReadyRepeater : MarshalByRefObject
+{
+    public event UpdateOrdersReadyDelegate updateOrdersReadyEvent;
+
+    public override object InitializeLifetimeService()
+    {
+        return null;
+    }
+
+    public void Repeater(Order newOrderReady)
+    {
+        if (updateOrdersReadyEvent != null)
+            updateOrdersReadyEvent(newOrderReady);
+    }
+}
+
+
+/**
  *      Send an order to be processed in the kitchen - Kitchen
  */
 

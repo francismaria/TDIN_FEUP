@@ -14,6 +14,8 @@ public class OrderInfo : MarshalByRefObject, IOrder_Info
 
     public event UpdateActiveTablesDelegate updateActiveTablesEvent;
 
+    public event UpdateOrdersReadyDelegate updateOrdersReadyEvent;
+
     public event SendOrderToKitchenDelegate sendOrderToKitchenEvent;
 
     public event SendOrderToBarDelegate sendOrderToBarEvent;
@@ -104,8 +106,7 @@ public class OrderInfo : MarshalByRefObject, IOrder_Info
         if(state == Order.ORDER_STATE.READY)
         {
             activeTables[tableID].getOrder(orderID).setState(state);
-            //returnOrderToDining(activeTables[tableID].getOrder(orderID));
-            Console.WriteLine("ORDER IS READY");
+            UpdateOrdersReady(activeTables[tableID].getOrder(orderID));
             return;
         }
 
@@ -153,6 +154,30 @@ public class OrderInfo : MarshalByRefObject, IOrder_Info
                     catch (Exception)
                     {
                         updateActiveTablesEvent -= handler;
+                        Console.WriteLine("Exception: Removed an event handler");
+                    }
+                }).Start();
+            }
+        }
+    }
+
+    void UpdateOrdersReady(Order orderReady)
+    {
+        if (updateOrdersReadyEvent != null)
+        {
+            Delegate[] invkList = updateOrdersReadyEvent.GetInvocationList();
+
+            foreach (UpdateOrdersReadyDelegate handler in invkList)
+            {
+                new Thread(() => {
+                    try
+                    {
+                        handler(orderReady);
+                        Console.WriteLine("Invoking event handler");
+                    }
+                    catch (Exception)
+                    {
+                        updateOrdersReadyEvent -= handler;
                         Console.WriteLine("Exception: Removed an event handler");
                     }
                 }).Start();

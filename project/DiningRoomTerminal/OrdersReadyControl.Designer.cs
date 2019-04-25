@@ -28,33 +28,45 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
+            this.ordersDeliveredBox = new System.Windows.Forms.ListBox();
+            this.deliveredBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // label1
+            // ordersDeliveredBox
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(418, 542);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(153, 25);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "second panel?";
-            this.label1.Click += new System.EventHandler(this.Label1_Click);
+            this.ordersDeliveredBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ordersDeliveredBox.FormattingEnabled = true;
+            this.ordersDeliveredBox.ItemHeight = 51;
+            this.ordersDeliveredBox.Location = new System.Drawing.Point(116, 130);
+            this.ordersDeliveredBox.Name = "ordersDeliveredBox";
+            this.ordersDeliveredBox.Size = new System.Drawing.Size(992, 820);
+            this.ordersDeliveredBox.TabIndex = 0;
             // 
-            // UserControl2
+            // deliveredBtn
+            // 
+            this.deliveredBtn.Location = new System.Drawing.Point(1202, 761);
+            this.deliveredBtn.Name = "deliveredBtn";
+            this.deliveredBtn.Size = new System.Drawing.Size(347, 189);
+            this.deliveredBtn.TabIndex = 1;
+            this.deliveredBtn.Text = "Delivered";
+            this.deliveredBtn.UseVisualStyleBackColor = true;
+            this.deliveredBtn.Click += new System.EventHandler(this.DeliveredBtn_Click);
+            // 
+            // OrdersReadyControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.label1);
-            this.Name = "UserControl2";
+            this.Controls.Add(this.deliveredBtn);
+            this.Controls.Add(this.ordersDeliveredBox);
+            this.Name = "OrdersReadyControl";
             this.Size = new System.Drawing.Size(1640, 1056);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ListBox ordersDeliveredBox;
+        private System.Windows.Forms.Button deliveredBtn;
     }
 }

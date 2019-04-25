@@ -8,7 +8,10 @@ namespace DiningRoomTerminal
     static class ConnectionObject
     {
         static IOrder_Info centralServer;
+
         static UpdateActiveTablesRepeater updateActiveTablesRepeater;
+
+        static UpdateOrdersReadyRepeater updateOrdersReadyRepeater;
 
         static ConnectionObject()
         {
@@ -25,6 +28,13 @@ namespace DiningRoomTerminal
             updateActiveTablesRepeater = new UpdateActiveTablesRepeater();
             updateActiveTablesRepeater.updateActiveTablesEvent += new UpdateActiveTablesDelegate(updateTablesFunc);
             centralServer.updateActiveTablesEvent += new UpdateActiveTablesDelegate(updateActiveTablesRepeater.Repeater);
+        }
+
+        public static void GetOrderReady(Action<Order> updateOrdersReadyFunc)
+        {
+            updateOrdersReadyRepeater = new UpdateOrdersReadyRepeater();
+            updateOrdersReadyRepeater.updateOrdersReadyEvent += new UpdateOrdersReadyDelegate(updateOrdersReadyFunc);
+            centralServer.updateOrdersReadyEvent += new UpdateOrdersReadyDelegate(updateOrdersReadyRepeater.Repeater);
         }
 
         /* ------------------------------------

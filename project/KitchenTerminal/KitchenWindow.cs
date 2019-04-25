@@ -42,7 +42,7 @@ namespace KitchenTerminal
                 return;
             }
 
-            string[] tokens = ordersNotHandledBox.GetItemText(ordersInPreparationBox.SelectedItem).Split(' ');
+            string[] tokens = ordersInPreparationBox.GetItemText(ordersInPreparationBox.SelectedItem).Split(' ');
 
             ConnectionObject.UpdateOrderState(Convert.ToInt32(tokens[1]), Convert.ToInt32(tokens[0]), Order.ORDER_STATE.READY);
 

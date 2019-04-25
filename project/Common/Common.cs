@@ -8,6 +8,8 @@ public interface IOrder_Info
 {
     event UpdateActiveTablesDelegate updateActiveTablesEvent;
 
+    event UpdateOrdersReadyDelegate updateOrdersReadyEvent;
+
     event SendOrderToKitchenDelegate sendOrderToKitchenEvent;
 
     event SendOrderToBarDelegate sendOrderToBarEvent;
@@ -19,8 +21,6 @@ public interface IOrder_Info
     void AddNewOrder(int tableID, Order newOrder);
 
     Meal GetMealInformation(int tableID);
-
-
 
     void SetMealAsPaid(int tableID);
 
