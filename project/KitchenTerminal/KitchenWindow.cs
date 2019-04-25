@@ -51,9 +51,8 @@ namespace KitchenTerminal
             }
             else
             {
-                list.Items.Add(order.getID() + ' ' + order.getDescription());
+                list.Items.Add(order.getID() + "       " + order.getDescription());
             }
-
         }
 
         private void UpdateListBoxes()
@@ -73,9 +72,43 @@ namespace KitchenTerminal
             }
         }
 
+        delegate void ClearInPreparationListBoxCallback(ListBox list);
+
+        private void ClearInPreparationListBox(ListBox list)
+        {
+            if (list.InvokeRequired)
+            {
+                ClearInPreparationListBoxCallback callback = new ClearInPreparationListBoxCallback(ClearInPreparationListBox);
+                Invoke(callback, list);
+            }
+            else
+            {
+                ordersInPreparationBox.Items.Clear();
+            }
+            
+        }
+
+
+        delegate void ClearNotHandledListBoxCallback(ListBox list);
+
+        private void ClearNotHandledListBox(ListBox list)
+        {
+            if (list.InvokeRequired)
+            {
+                ClearNotHandledListBoxCallback callback = new ClearNotHandledListBoxCallback(ClearNotHandledListBox);
+                Invoke(callback, list);
+            }
+            else
+            {
+                ordersNotHandledBox.Items.Clear();
+            }
+
+        }
+
         public void ReceiveOrderFunc(Order newOrder)
         {
             SubstituteOrder(newOrder);
+            ClearNotHandledListBox(ordersNotHandledBox);
             UpdateListBoxes();
         }
 
