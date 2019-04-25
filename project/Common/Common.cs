@@ -20,6 +20,8 @@ public interface IOrder_Info
 
     Meal GetMealInformation(int tableID);
 
+
+
     void SetMealAsPaid(int tableID);
 
     void UpdateKitchenOrderState(int tableID, int orderID, Order.ORDER_STATE state);

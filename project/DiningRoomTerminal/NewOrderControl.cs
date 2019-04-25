@@ -12,9 +12,16 @@ namespace DiningRoomTerminal
 {
     public partial class NewOrderControl : UserControl
     {
+        private int tableID;
+
         public NewOrderControl()
         {
             InitializeComponent();
+        }
+
+        public void SetTable(int tableID)
+        {
+            this.tableID = tableID;
         }
 
         private void DrinksChoiceControl1_Load(object sender, EventArgs e)
@@ -29,11 +36,13 @@ namespace DiningRoomTerminal
 
         private void DrinksBtn_Click(object sender, EventArgs e)
         {
+            //drinksChoiceControl1.SetTable(tableID);
             drinksChoiceControl1.Show();
         }
 
         private void FoodBtn_Click(object sender, EventArgs e)
         {
+            foodChoiceControl1.SetTable(tableID);
             foodChoiceControl1.Show();
         }
 

@@ -36,8 +36,9 @@
             // 
             // listBox1
             // 
+            listBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             listBox1.FormattingEnabled = true;
-            listBox1.ItemHeight = 25;
+            listBox1.ItemHeight = 51;
             listBox1.Items.AddRange(new object[] {
             "Bacalhau à Brás",
             "Bacalhau c/ Natas",
@@ -46,7 +47,7 @@
             "Arroz de Polvo"});
             listBox1.Location = new System.Drawing.Point(145, 118);
             listBox1.Name = "listBox1";
-            listBox1.Size = new System.Drawing.Size(984, 954);
+            listBox1.Size = new System.Drawing.Size(984, 922);
             listBox1.TabIndex = 5;
             // 
             // backBtn

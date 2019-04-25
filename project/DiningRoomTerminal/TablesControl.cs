@@ -141,7 +141,7 @@ namespace DiningRoomTerminal
 
                 if (dialogresult == DialogResult.OK)
                 {
-                    //openTable
+                    //Add new Order
                     Console.WriteLine("CLOSE TABLE " +  tableID);
                 }
             } else {
@@ -150,8 +150,7 @@ namespace DiningRoomTerminal
 
                 if (dialogresult == DialogResult.OK)
                 {
-                    //closeTable
-                    Console.WriteLine("OPEN TABLE " +  tableID);
+                    newOrderControl1.SetTable(tableID);
                     newOrderControl1.Show();
                 }
             }
@@ -190,15 +189,6 @@ namespace DiningRoomTerminal
                     btn.BackColor = Color.Red;
                 }
             }
-            /*
-            foreach(int i in activeTables)
-            {
-                var btnToActivate = "table" + i.ToString();
-                var btn = Controls.OfType<Button>().FirstOrDefault(b => b.Name == btnToActivate);
-                btn.BackColor = Color.Green;
-            }
-            Console.WriteLine("EVENT RECEIVED!!!");*/
         }
-
     }
 }
