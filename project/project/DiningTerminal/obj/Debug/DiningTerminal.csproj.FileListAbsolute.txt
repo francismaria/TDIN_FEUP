@@ -1,0 +1,17 @@
+C:\Users\Francisco Maria\Desktop\TDIN_FEUP-master\project\DiningTerminal\bin\Debug\DiningTerminal.exe.config
+C:\Users\Francisco Maria\Desktop\TDIN_FEUP-master\project\DiningTerminal\bin\Debug\DiningTerminal.exe
+C:\Users\Francisco Maria\Desktop\TDIN_FEUP-master\project\DiningTerminal\bin\Debug\DiningTerminal.pdb
+C:\Users\Francisco Maria\Desktop\TDIN_FEUP-master\project\DiningTerminal\obj\Debug\DiningTerminal.diningTerminalForm.resources
+C:\Users\Francisco Maria\Desktop\TDIN_FEUP-master\project\DiningTerminal\obj\Debug\DiningTerminal.Properties.Resources.resources
+C:\Users\Francisco Maria\Desktop\TDIN_FEUP-master\project\DiningTerminal\obj\Debug\DiningTerminal.TablesDisplayControl.resources
+C:\Users\Francisco Maria\Desktop\TDIN_FEUP-master\project\DiningTerminal\obj\Debug\DiningTerminal.csproj.GenerateResource.cache
+C:\Users\Francisco Maria\Desktop\TDIN_FEUP-master\project\DiningTerminal\obj\Debug\DiningTerminal.csproj.CoreCompileInputs.cache
+C:\Users\Francisco Maria\Desktop\TDIN_FEUP-master\project\DiningTerminal\obj\Debug\DiningTerminal.exe
+C:\Users\Francisco Maria\Desktop\TDIN_FEUP-master\project\DiningTerminal\obj\Debug\DiningTerminal.pdb
+C:\Users\Francisco Maria\Desktop\TDIN_FEUP-master\project\DiningTerminal\obj\Debug\DiningTerminal.OrdersReadyControl.resources
+C:\Users\Francisco Maria\Desktop\TDIN_FEUP-master\project\DiningTerminal\obj\Debug\DiningTerminal.csprojAssemblyReference.cache
+C:\Users\Francisco Maria\Desktop\TDIN_FEUP-master\project\DiningTerminal\obj\Debug\DiningTerminal.OpenTablePopupForm.resources
+C:\Users\Francisco Maria\Desktop\TDIN_FEUP-master\project\DiningTerminal\obj\Debug\DiningTerminal.NewOrderControl.resources
+C:\Users\Francisco Maria\Desktop\TDIN_FEUP-master\project\DiningTerminal\bin\Debug\Common.dll
+C:\Users\Francisco Maria\Desktop\TDIN_FEUP-master\project\DiningTerminal\bin\Debug\Common.pdb
+C:\Users\Francisco Maria\Desktop\TDIN_FEUP-master\project\DiningTerminal\obj\Debug\DiningTerminal.csproj.CopyComplete

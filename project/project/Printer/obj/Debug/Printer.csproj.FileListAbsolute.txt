@@ -1,0 +1,10 @@
+C:\Users\Francisco Maria\Desktop\TDIN_FEUP-master\project\Printer\bin\Debug\Printer.exe.config
+C:\Users\Francisco Maria\Desktop\TDIN_FEUP-master\project\Printer\bin\Debug\Printer.exe
+C:\Users\Francisco Maria\Desktop\TDIN_FEUP-master\project\Printer\bin\Debug\Printer.pdb
+C:\Users\Francisco Maria\Desktop\TDIN_FEUP-master\project\Printer\bin\Debug\Common.dll
+C:\Users\Francisco Maria\Desktop\TDIN_FEUP-master\project\Printer\bin\Debug\Common.pdb
+C:\Users\Francisco Maria\Desktop\TDIN_FEUP-master\project\Printer\obj\Debug\Printer.csprojAssemblyReference.cache
+C:\Users\Francisco Maria\Desktop\TDIN_FEUP-master\project\Printer\obj\Debug\Printer.csproj.CoreCompileInputs.cache
+C:\Users\Francisco Maria\Desktop\TDIN_FEUP-master\project\Printer\obj\Debug\Printer.csproj.CopyComplete
+C:\Users\Francisco Maria\Desktop\TDIN_FEUP-master\project\Printer\obj\Debug\Printer.exe
+C:\Users\Francisco Maria\Desktop\TDIN_FEUP-master\project\Printer\obj\Debug\Printer.pdb
