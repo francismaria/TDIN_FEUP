@@ -26,6 +26,7 @@ namespace DiningTerminal
             //Has to have a LOCK
             ordersReady.Add(newOrderReady);
 
+            ClearNewOrdersBox(ordersReadyListBox);
             DisplayNewOrders();
         }
 
@@ -34,6 +35,21 @@ namespace DiningTerminal
             foreach (Order order in ordersReady)
             {
                 WriteToList(ordersReadyListBox, order);
+            }
+        }
+
+        delegate void ClearNewOrdersBoxCallback(ListBox list);
+
+        private void ClearNewOrdersBox(ListBox list)
+        {
+            if (list.InvokeRequired)
+            {
+                ClearNewOrdersBoxCallback callback = new ClearNewOrdersBoxCallback(ClearNewOrdersBox);
+                Invoke(callback, list);
+            }
+            else
+            {
+                list.Items.Clear();
             }
         }
 

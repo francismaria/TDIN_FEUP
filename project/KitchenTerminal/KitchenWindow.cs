@@ -44,14 +44,9 @@ namespace KitchenTerminal
 
             string[] tokens = ordersInPreparationBox.GetItemText(ordersInPreparationBox.SelectedItem).Split(' ');
 
-            ConnectionObject.UpdateOrderState(Convert.ToInt32(tokens[1]), Convert.ToInt32(tokens[0]), Order.ORDER_STATE.READY);
-
             //REMOVES THE NOW READY ORDER FROM THE TERMINAL'S STORAGE
             RemoveReceivedOrder(Convert.ToInt32(tokens[0]));
-            ordersInPreparationBox.Items.Remove(ordersInPreparationBox.SelectedItem);
-
-            ClearInPreparationListBox(ordersInPreparationBox);
-            UpdateListBoxes();
+            ConnectionObject.UpdateOrderState(Convert.ToInt32(tokens[1]), Convert.ToInt32(tokens[0]), Order.ORDER_STATE.READY);
         }
 
         private void RemoveReceivedOrder(int orderID)
@@ -59,6 +54,7 @@ namespace KitchenTerminal
             lock(updateList)
             {
                     receivedOrders.RemoveAll(order => order.getID() == orderID);
+                    ordersInPreparationBox.Items.Remove(ordersInPreparationBox.SelectedItem);
             }
         }
 
