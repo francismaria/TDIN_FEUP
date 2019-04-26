@@ -24,6 +24,8 @@ public interface IOrder_Info
 
     Meal GetMealInformation(int tableID);
 
+    List<int> GetActiveTables();
+
     void SetMealAsPaid(int tableID);
 
     void UpdateKitchenOrderState(int tableID, int orderID, Order.ORDER_STATE state);

@@ -17,7 +17,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderInfo", "OrderInfo\OrderInfo.csproj", "{B7EA36EB-8196-4A3F-95D1-8DCFAEFA7971}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiningRoomTerminal", "DiningRoomTerminal\DiningRoomTerminal.csproj", "{D0D5648F-D65F-43EF-B9F8-B1DAE8ECCF9C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiningTerminal", "DiningTerminal\DiningTerminal.csproj", "{AA0AF4D0-147E-4282-A1F6-A6B0B5CD9B59}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -53,10 +53,10 @@ Global
 		{B7EA36EB-8196-4A3F-95D1-8DCFAEFA7971}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B7EA36EB-8196-4A3F-95D1-8DCFAEFA7971}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B7EA36EB-8196-4A3F-95D1-8DCFAEFA7971}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D0D5648F-D65F-43EF-B9F8-B1DAE8ECCF9C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D0D5648F-D65F-43EF-B9F8-B1DAE8ECCF9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D0D5648F-D65F-43EF-B9F8-B1DAE8ECCF9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D0D5648F-D65F-43EF-B9F8-B1DAE8ECCF9C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA0AF4D0-147E-4282-A1F6-A6B0B5CD9B59}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA0AF4D0-147E-4282-A1F6-A6B0B5CD9B59}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA0AF4D0-147E-4282-A1F6-A6B0B5CD9B59}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA0AF4D0-147E-4282-A1F6-A6B0B5CD9B59}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

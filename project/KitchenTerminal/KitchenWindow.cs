@@ -64,6 +64,11 @@ namespace KitchenTerminal
 
         private void SubstituteOrder(Order newOrder)
         {
+            foreach(Order order in receivedOrders)
+            {
+                Console.WriteLine(order.getDescription());
+            }
+
             lock (updateList)
             {
                 int index = receivedOrders.FindIndex(ind => ind.Equals(newOrder));

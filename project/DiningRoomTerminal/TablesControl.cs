@@ -190,5 +190,10 @@ namespace DiningRoomTerminal
                 }
             }
         }
+
+        private void NewOrderControl1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

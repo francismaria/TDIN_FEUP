@@ -22,6 +22,8 @@ public class OrderInfo : MarshalByRefObject, IOrder_Info
 
     public event PrintMealInvoiceDelegate printMealInvoiceEvent;
 
+    public static int IDCounter = 0;
+
     public OrderInfo()
     {
         Console.WriteLine("Central Storage has been created.");
@@ -77,6 +79,7 @@ public class OrderInfo : MarshalByRefObject, IOrder_Info
             return;
         }
 
+        updateOrderID(newOrder);
         activeTables[tableID].addOrder(newOrder);
 
         if(newOrder.getType() == Order.ORDER_TYPE.KITCHEN)
@@ -84,16 +87,23 @@ public class OrderInfo : MarshalByRefObject, IOrder_Info
         else
         {
             SendOrderToBar(newOrder);
-            Console.WriteLine("kok");
-        }
-        
+        }   
+    }
 
-        
+    private void updateOrderID(Order newOrder)
+    {
+        newOrder.setID(IDCounter);
+        IDCounter = System.Threading.Interlocked.Increment(ref IDCounter);
     }
 
     public Meal GetMealInformation(int tableID)
     {
         return activeTables[tableID];
+    }
+
+    public List<int> GetActiveTables()
+    {
+        return new List<int>(activeTables.Keys);
     }
 
     public void SetMealAsPaid(int tableID)

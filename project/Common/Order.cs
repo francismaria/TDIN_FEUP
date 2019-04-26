@@ -5,14 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-// -- Order Object --
-
 [Serializable]
 public class Order
 {
-    private static int IDCounter = 0;
-    private static object locker = new object();
-
     private int ID;
     private string description;
     private int destinationTable;
@@ -34,17 +29,17 @@ public class Order
     }
 
     public Order(string description, int destinationTable, double price, ORDER_TYPE type)
-    {
-        lock (locker)
-        {
-            IDCounter++;
-            ID = IDCounter;
-        }
+    {   
         this.description = description;
         this.destinationTable = destinationTable;
         this.price = price;
         state = ORDER_STATE.NOT_PICKED;
         this.type = type;
+    }
+
+    public void setID(int ID)
+    {
+        this.ID = ID;
     }
 
     public int getID()
