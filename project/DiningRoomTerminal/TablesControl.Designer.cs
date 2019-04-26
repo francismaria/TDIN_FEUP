@@ -213,7 +213,6 @@
             this.newOrderControl1.Name = "newOrderControl1";
             this.newOrderControl1.Size = new System.Drawing.Size(1744, 1206);
             this.newOrderControl1.TabIndex = 16;
-            this.newOrderControl1.Load += new System.EventHandler(this.NewOrderControl1_Load);
             // 
             // TablesControl
             // 

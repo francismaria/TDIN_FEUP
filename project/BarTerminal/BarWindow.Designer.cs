@@ -36,7 +36,7 @@
             this.receivedTitlePanel = new System.Windows.Forms.Panel();
             this.notHandledLabel = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.ordersReadyBox = new System.Windows.Forms.ListBox();
+            this.ordersInPreparationBox = new System.Windows.Forms.ListBox();
             this.readyBtn = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.inPrepLabel = new System.Windows.Forms.Label();
@@ -126,7 +126,7 @@
             // panel3
             // 
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel3.Controls.Add(this.ordersReadyBox);
+            this.panel3.Controls.Add(this.ordersInPreparationBox);
             this.panel3.Controls.Add(this.readyBtn);
             this.panel3.Controls.Add(this.panel4);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -135,16 +135,16 @@
             this.panel3.Size = new System.Drawing.Size(980, 1060);
             this.panel3.TabIndex = 3;
             // 
-            // ordersReadyBox
+            // ordersInPreparationBox
             // 
-            this.ordersReadyBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ordersReadyBox.Font = new System.Drawing.Font("Trebuchet MS", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ordersReadyBox.FormattingEnabled = true;
-            this.ordersReadyBox.ItemHeight = 46;
-            this.ordersReadyBox.Location = new System.Drawing.Point(0, 146);
-            this.ordersReadyBox.Name = "ordersReadyBox";
-            this.ordersReadyBox.Size = new System.Drawing.Size(978, 763);
-            this.ordersReadyBox.TabIndex = 3;
+            this.ordersInPreparationBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ordersInPreparationBox.Font = new System.Drawing.Font("Trebuchet MS", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ordersInPreparationBox.FormattingEnabled = true;
+            this.ordersInPreparationBox.ItemHeight = 46;
+            this.ordersInPreparationBox.Location = new System.Drawing.Point(0, 146);
+            this.ordersInPreparationBox.Name = "ordersInPreparationBox";
+            this.ordersInPreparationBox.Size = new System.Drawing.Size(978, 763);
+            this.ordersInPreparationBox.TabIndex = 3;
             // 
             // readyBtn
             // 
@@ -156,6 +156,7 @@
             this.readyBtn.TabIndex = 2;
             this.readyBtn.Text = "Ready";
             this.readyBtn.UseVisualStyleBackColor = true;
+            this.readyBtn.Click += new System.EventHandler(this.ReadyBtn_Click);
             // 
             // panel4
             // 
@@ -210,6 +211,6 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label inPrepLabel;
         private System.Windows.Forms.ListBox ordersNotHandledBox;
-        private System.Windows.Forms.ListBox ordersReadyBox;
+        private System.Windows.Forms.ListBox ordersInPreparationBox;
     }
 }

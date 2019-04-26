@@ -18,8 +18,8 @@ namespace KitchenTerminal
 
         public KitchenWindow()
         {
-            ConnectionObject.ReceiveNewOrder(ReceiveOrderFunc);
             InitializeComponent();
+            ConnectionObject.ReceiveNewOrder(ReceiveOrderFunc);
         }
 
         private void PrepBtn_Click(object sender, EventArgs e)

@@ -20,6 +20,8 @@ public class OrderInfo : MarshalByRefObject, IOrder_Info
 
     public event SendOrderToBarDelegate sendOrderToBarEvent;
 
+    public event PrintMealInvoiceDelegate printMealInvoiceEvent;
+
     public OrderInfo()
     {
         Console.WriteLine("Central Storage has been created.");
@@ -62,6 +64,7 @@ public class OrderInfo : MarshalByRefObject, IOrder_Info
         if (!mealsHistory.ContainsKey(tableID))
             mealsHistory.Add(tableID, new List<Meal>());
 
+        PrintMealInvoice(activeTables[tableID]);
         mealsHistory[tableID].Add(activeTables[tableID]);
         activeTables.Remove(tableID);
         UpdateActiveTables();
@@ -79,7 +82,13 @@ public class OrderInfo : MarshalByRefObject, IOrder_Info
         if(newOrder.getType() == Order.ORDER_TYPE.KITCHEN)
             SendOrderToKitchen(newOrder);
         else
+        {
             SendOrderToBar(newOrder);
+            Console.WriteLine("kok");
+        }
+        
+
+        
     }
 
     public Meal GetMealInformation(int tableID)
@@ -123,8 +132,8 @@ public class OrderInfo : MarshalByRefObject, IOrder_Info
             return;
         }
 
-        //activeTables[tableID].getOrder(orderID).setState(state);
-        //SendOrderToKitchen(activeTables[tableID].getOrder(orderID));
+        activeTables[tableID].getOrder(orderID).setState(state);
+        SendOrderToBar(activeTables[tableID].getOrder(orderID));
     }
 
     public override object InitializeLifetimeService()
@@ -226,6 +235,31 @@ public class OrderInfo : MarshalByRefObject, IOrder_Info
                     catch (Exception)
                     {
                         sendOrderToBarEvent -= handler;
+                        Console.WriteLine("Exception: Removed an event handler");
+                    }
+                }).Start();
+            }
+        }
+    }
+
+
+    void PrintMealInvoice(Meal closedMeal)
+    {
+        if (printMealInvoiceEvent != null)
+        {
+            Delegate[] invkList = printMealInvoiceEvent.GetInvocationList();
+
+            foreach (PrintMealInvoiceDelegate handler in invkList)
+            {
+                new Thread(() => {
+                    try
+                    {
+                        handler(closedMeal);
+                        Console.WriteLine("Invoking event handler");
+                    }
+                    catch (Exception)
+                    {
+                        printMealInvoiceEvent -= handler;
                         Console.WriteLine("Exception: Removed an event handler");
                     }
                 }).Start();

@@ -14,6 +14,7 @@ namespace BarTerminal
         [STAThread]
         static void Main()
         {
+            ConnectionObject.InitConnection();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new BarWindow());

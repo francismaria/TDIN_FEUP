@@ -22,6 +22,7 @@ namespace DiningRoomTerminal
         public void SetTable(int tableID)
         {
             this.tableID = tableID;
+            ConnectionObject.OpenTable(tableID);
         }
 
         private void DrinksChoiceControl1_Load(object sender, EventArgs e)
@@ -36,7 +37,7 @@ namespace DiningRoomTerminal
 
         private void DrinksBtn_Click(object sender, EventArgs e)
         {
-            //drinksChoiceControl1.SetTable(tableID);
+            drinksChoiceControl1.SetTable(tableID);
             drinksChoiceControl1.Show();
         }
 

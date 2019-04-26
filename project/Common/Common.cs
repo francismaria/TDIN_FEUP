@@ -14,6 +14,8 @@ public interface IOrder_Info
 
     event SendOrderToBarDelegate sendOrderToBarEvent;
 
+    event PrintMealInvoiceDelegate printMealInvoiceEvent;
+
     void OpenTable(int tableID);
 
     void CloseTable(int tableID);

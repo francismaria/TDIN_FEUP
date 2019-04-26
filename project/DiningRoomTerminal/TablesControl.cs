@@ -17,11 +17,11 @@ namespace DiningRoomTerminal
 
         public TablesControl()
         {
+            InitializeComponent();
             activeTables = new List<int>();
 
             ConnectionObject.UpdateActiveTables(updateTables);
-
-            InitializeComponent();
+            updateTables(activeTables);
         }
 
         private void TablesControl_Load(object sender, EventArgs e)
@@ -189,11 +189,6 @@ namespace DiningRoomTerminal
                     btn.BackColor = Color.Red;
                 }
             }
-        }
-
-        private void NewOrderControl1_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

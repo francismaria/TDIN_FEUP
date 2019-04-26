@@ -26,7 +26,6 @@ namespace DiningRoomTerminal
 
         private void OrderBtn_Click(object sender, EventArgs e)
         {
-            ConnectionObject.OpenTable(tableID);
             Order o1 = new Order("Bacalhau à Brás", tableID, 16.99, Order.ORDER_TYPE.KITCHEN);
             ConnectionObject.SendOrder(o1.getDestinationTable(), o1);
         }

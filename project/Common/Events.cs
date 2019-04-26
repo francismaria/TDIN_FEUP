@@ -95,3 +95,25 @@ public class SendOrderToBarRepeater : MarshalByRefObject
             sendOrderToBarEvent(newOrder);
     }
 }
+
+/**
+ *      Send a meal so its invoice be printed
+ */
+
+public delegate void PrintMealInvoiceDelegate(Meal closedMeal);
+
+public class PrintMealInvoiceRepeater : MarshalByRefObject
+{
+    public event PrintMealInvoiceDelegate printMealInvoiceEvent;
+
+    public override object InitializeLifetimeService()
+    {
+        return null;
+    }
+
+    public void Repeater(Meal closedMeal)
+    {
+        if (printMealInvoiceEvent != null)
+            printMealInvoiceEvent(closedMeal);
+    }
+}
