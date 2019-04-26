@@ -24,6 +24,8 @@ public class OrderInfo : MarshalByRefObject, IOrder_Info
 
     public static int IDCounter = 0;
 
+    // -- Methods --
+
     public OrderInfo()
     {
         Console.WriteLine("Central Storage has been created.");
@@ -92,8 +94,8 @@ public class OrderInfo : MarshalByRefObject, IOrder_Info
 
     private void updateOrderID(Order newOrder)
     {
-        newOrder.setID(IDCounter);
         IDCounter = System.Threading.Interlocked.Increment(ref IDCounter);
+        newOrder.setID(IDCounter);
     }
 
     public Meal GetMealInformation(int tableID)
@@ -139,6 +141,13 @@ public class OrderInfo : MarshalByRefObject, IOrder_Info
         if (!IsTableActive(tableID))
         {
             Console.WriteLine("Table is not active.");
+            return;
+        }
+
+        if (state == Order.ORDER_STATE.READY)
+        {
+            activeTables[tableID].getOrder(orderID).setState(state);
+            UpdateOrdersReady(activeTables[tableID].getOrder(orderID));
             return;
         }
 
